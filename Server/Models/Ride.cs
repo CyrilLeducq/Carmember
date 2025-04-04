@@ -16,7 +16,7 @@ public class Ride
     public string DepartureLocationCity { get; set; }
 
     [Required]
-    [StringLength(250), Column("departure_location_city")]
+    [StringLength(250), Column("departure_location_adress")]
     public string DepartureLocationAdress { get; set; }
 
     [Required]
@@ -24,7 +24,7 @@ public class Ride
     public string ArrivalLocationCity { get; set; }
 
     [Required]
-    [StringLength(250), Column("arrival_location_city")]
+    [StringLength(250), Column("arrival_location_adress")]
     public string ArrivalLocationAdress { get; set; }
 
     [Required]

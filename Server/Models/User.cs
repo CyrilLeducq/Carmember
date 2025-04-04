@@ -51,12 +51,12 @@ public class User
 
 
     [StringLength(36), Column("id_vehicule_model")]
-    public string? IdVehiculeModel { get; set; }
+    public Guid? IdVehiculeModel { get; set; }
 
     public VehiculeModel? VehiculeModel { get; set; }
 
 
-    //public List<Review>? Reviews { get; set; } = new List<Review>();
+    public List<Review>? Reviews { get; set; } = new List<Review>();
 
     public List<Ride>? Rides { get; set; } = new List<Ride>();
 
