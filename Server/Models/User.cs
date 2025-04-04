@@ -32,16 +32,16 @@ public class User
     public string PasswordSalt { get; set; }
 
     [StringLength(20) , Column("phone_number")]
-    public string PhoneNumber { get; set; }
+    public string? PhoneNumber { get; set; }
 
     [StringLength(200) , Column("profile_picture")]
-    public string ProfilePicture { get; set; }
+    public string? ProfilePicture { get; set; }
 
     [StringLength(50) , Column("gender")]
-    public string Gender { get; set; }
+    public string? Gender { get; set; }
 
     [Range(typeof(DateOnly), "1910-05-21", "9999-12-31")]
-    public DateTime CreationDate { get; set; }
+    public DateTime? CreationDate { get; set; }
 
     [Required]
     [StringLength(50), Column("role")]
@@ -50,9 +50,9 @@ public class User
 
 
 
-    [Column("id_vehicule_model")]
-    public string IdVehiculeModel { get; set; }
+    [StringLength(36), Column("id_vehicule_model")]
+    public string? IdVehiculeModel { get; set; }
 
-    public VehiculeModel VehiculeModel { get; set; }
+    public VehiculeModel? VehiculeModel { get; set; }
 
 }
