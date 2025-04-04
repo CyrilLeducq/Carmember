@@ -12,5 +12,6 @@ namespace CarMember_server.Repositories
         Task<T?> Update(T entity);
         Task<bool> Delete(Tid id);
 
+
     }
 }
