@@ -1,0 +1,54 @@
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-contenant{
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    gap: 10px;
+    background-color: white;
+    width: 80%;
+    justify-content: space-around;
+    position: absolute;
+    border: none;
+}
+.depart ,
+.destination{
+    display: flex;
+    border-radius: 10px;
+    padding: 5px;
+}
+.depart-input,
+.destination-input{
+   border: none;
+}
+.btn-search{
+    background-color: #F7753D;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    border: none;
+}
+.btn-calendar{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: none;
+    gap: 5px;
+}
+.position-relative{
+    display: flex;
+}
+.personn{
+    display: flex;
+    border: none;
+    background: white;
+    align-items: center;
+}
+.passager{
+    display: flex;
+    align-items: center;
+}
