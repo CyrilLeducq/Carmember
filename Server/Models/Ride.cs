@@ -56,6 +56,9 @@ public class Ride
     [Column("talking_preference  ")]
     public TalkingReference TalkingReference { get; set; }
 
+
+    public List<User>? Users { get; set; } = new List<User>();
+
 }
 
 public enum MusicalPreference
