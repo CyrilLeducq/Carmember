@@ -55,4 +55,10 @@ public class User
 
     public VehiculeModel? VehiculeModel { get; set; }
 
+
+    //public List<Review>? Reviews { get; set; } = new List<Review>();
+
+    public List<Ride>? Rides { get; set; } = new List<Ride>();
+
+
 }

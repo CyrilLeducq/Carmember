@@ -19,6 +19,9 @@ namespace CarMember_server.Models
         [Required]
         [Column("number_of_seats")]
         public int NumberOfSeats { get; set; }
+
+
+        public List<User>? Users { get; set; } = new List<User>();
     }
 
     public enum VehiculeCategory
