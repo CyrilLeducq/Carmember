@@ -1,6 +1,12 @@
-﻿namespace CarMember_server.Data
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace CarMember_server.Data;
+
+public class AppDbContext : DbContext
 {
-    public class AppDbContext
-    {
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
     }
+
+
 }
