@@ -2,3 +2,9 @@
     width: 100%;
     object-fit: cover;
 }
+.card-conteneur{
+    margin-top: 10rem;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+}

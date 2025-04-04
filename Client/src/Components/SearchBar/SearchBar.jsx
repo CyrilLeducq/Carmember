@@ -14,7 +14,6 @@ function SearchBar() {
   const [departureSuggestions, setDepartureSuggestions] = useState([]);
   const [destinationSuggestions, setDestinationSuggestions] = useState([]);
 
-  // ✅ Lecture directe de la clé API via process.env
   const apiKey = import.meta.env.VITE_GEODB_API_KEY || "c27264e6d6mshadab7c7b91cd300p11e66ejsnf0635bbccd2e";
 
   if (!apiKey) {
