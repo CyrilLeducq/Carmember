@@ -1,5 +1,8 @@
-﻿using CarMember_server.Models;
+﻿using System.Reflection.Emit;
+using System.Reflection.Metadata;
+using CarMember_server.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
 namespace CarMember_server.Data;
 
@@ -14,8 +17,27 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Pizza>().HasData(InitialData.Pizzas);
-        modelBuilder.Entity<Ingredient>().HasData(InitialData.Ingredients);
+        modelBuilder.Entity<VehiculeModel>()
+        .HasMany(e => e.Users)
+        .WithOne(e => e.VehiculeModel)
+        .HasForeignKey(e => e.IdVehiculeModel);
+
+        modelBuilder.Entity<User>()
+        .HasMany(e => e.Reviews)
+        .WithOne(e => e.ReviewedUser);
+
+        modelBuilder.Entity<Ride>()
+        .HasMany(e => e.Users)
+        .WithMany(e => e.Rides);
+
+
+
+
+        //modelBuilder.Entity<User>().HasData(InitialData.Users);
+        //modelBuilder.Entity<Ride>().HasData(InitialData.Rides);
+        //modelBuilder.Entity<VehiculeModel>().HasData(InitialData.VehiculeModels);
+        //modelBuilder.Entity<Review>().HasData(InitialData.Reviews);
+
     }
 
 
