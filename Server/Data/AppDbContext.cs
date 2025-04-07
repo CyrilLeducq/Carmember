@@ -1,4 +1,5 @@
-﻿using System.Reflection.Metadata;
+﻿using System.Reflection.Emit;
+using System.Reflection.Metadata;
 using CarMember_server.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
@@ -28,6 +29,7 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Ride>()
         .HasMany(e => e.Users)
         .WithMany(e => e.Rides);
+
 
 
 

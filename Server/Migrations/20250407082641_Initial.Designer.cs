@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarMember_server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250404143812_Initial")]
+    [Migration("20250407082641_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -37,11 +37,11 @@ namespace CarMember_server.Migrations
                         .HasColumnType("nvarchar(500)")
                         .HasColumnName("comment");
 
-                    b.Property<Guid>("IdAuthorUser")
+                    b.Property<Guid?>("IdAuthorUser")
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("id_author_user");
 
-                    b.Property<Guid>("IdReviewedUser")
+                    b.Property<Guid?>("IdReviewedUser")
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("id_reviewed_user");
 
@@ -244,15 +244,11 @@ namespace CarMember_server.Migrations
                 {
                     b.HasOne("CarMember_server.Models.User", "AuthorUser")
                         .WithMany()
-                        .HasForeignKey("IdAuthorUser")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdAuthorUser");
 
                     b.HasOne("CarMember_server.Models.User", "ReviewedUser")
                         .WithMany("Reviews")
-                        .HasForeignKey("IdReviewedUser")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdReviewedUser");
 
                     b.Navigation("AuthorUser");
 

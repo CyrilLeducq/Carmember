@@ -17,15 +17,15 @@ public class Review
 
 
     [Column("id_reviewed_user")]
-    public Guid IdReviewedUser { get; set; }
+    public Guid? IdReviewedUser { get; set; }
 
     [ForeignKey("IdReviewedUser")]
-    public User ReviewedUser { get; set; }
+    public User? ReviewedUser { get; set; }
 
     [Column("id_author_user")]
-    public Guid IdAuthorUser { get; set; }
+    public Guid? IdAuthorUser { get; set; }
 
     [ForeignKey("IdAuthorUser")]
-    public User AuthorUser { get; set; }
+    public User? AuthorUser { get; set; }
 
 }

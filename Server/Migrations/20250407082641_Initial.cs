@@ -82,8 +82,8 @@ namespace CarMember_server.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     score = table.Column<int>(type: "int", nullable: false),
                     comment = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
-                    id_reviewed_user = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    id_author_user = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    id_reviewed_user = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    id_author_user = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -92,14 +92,12 @@ namespace CarMember_server.Migrations
                         name: "FK_Reviews_Users_id_author_user",
                         column: x => x.id_author_user,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Reviews_Users_id_reviewed_user",
                         column: x => x.id_reviewed_user,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
