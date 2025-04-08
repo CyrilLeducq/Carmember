@@ -16,16 +16,16 @@ public class Review
     public string Comment { get; set; }
 
 
-    [Column("id_reviewed_user")]
-    public Guid? IdReviewedUser { get; set; }
+    [Column("reviewed_user_id")]
+    public Guid? ReviewedUserId { get; set; }
 
-    [ForeignKey("IdReviewedUser")]
+    [ForeignKey("ReviewedUserId")]
     public User? ReviewedUser { get; set; }
 
-    [Column("id_author_user")]
-    public Guid? IdAuthorUser { get; set; }
 
-    [ForeignKey("IdAuthorUser")]
+    [Column("author_user_id")]
+    public Guid? AuthorUserId { get; set; }
+
+    [ForeignKey("AuthorUserId")]
     public User? AuthorUser { get; set; }
-
 }

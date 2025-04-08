@@ -55,15 +55,15 @@ public class ReviewRepository : IRepository<Review, Guid>
         if (reviewFromDb.Comment != review.Comment)
             reviewFromDb.Comment = review.Comment;
         
-        if (reviewFromDb.IdReviewedUser != review.IdReviewedUser)
-            reviewFromDb.IdReviewedUser = review.IdReviewedUser;
+        if (reviewFromDb.ReviewedUserId != review.ReviewedUserId)
+            reviewFromDb.ReviewedUserId = review.ReviewedUserId;
         
         if (reviewFromDb.ReviewedUser != review.ReviewedUser)
             reviewFromDb.ReviewedUser = review.ReviewedUser;
         
-        if (reviewFromDb.IdAuthorUser != review.IdAuthorUser)
-            reviewFromDb.IdAuthorUser = review.IdAuthorUser;
-        
+        if (reviewFromDb.AuthorUserId != review.AuthorUserId)
+            reviewFromDb.AuthorUserId = review.AuthorUserId;
+
         if (reviewFromDb.AuthorUser != review.AuthorUser)
             reviewFromDb.AuthorUser = review.AuthorUser;
 

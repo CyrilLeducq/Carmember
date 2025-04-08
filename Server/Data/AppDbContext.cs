@@ -1,8 +1,6 @@
-﻿using System.Reflection.Emit;
-using System.Reflection.Metadata;
-using CarMember_server.Models;
+﻿using CarMember_server.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace CarMember_server.Data;
 
@@ -14,29 +12,41 @@ public class AppDbContext : DbContext
     public DbSet<Ride> Rides { get; set; }
     public DbSet<VehiculeModel> VehiculeModels { get; set; }
     public DbSet<Review> Reviews { get; set; }
+    public DbSet<RideUser> RideUsers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<VehiculeModel>()
-        .HasMany(e => e.Users)
-        .WithOne(e => e.VehiculeModel)
-        .HasForeignKey(e => e.IdVehiculeModel);
+        modelBuilder.Entity<User>()
+        .HasMany(e => e.ReviewedReviews)
+        .WithOne(e => e.ReviewedUser)
+        .OnDelete(DeleteBehavior.Cascade);
 
         modelBuilder.Entity<User>()
-        .HasMany(e => e.Reviews)
-        .WithOne(e => e.ReviewedUser);
-
-        modelBuilder.Entity<Ride>()
-        .HasMany(e => e.Users)
-        .WithMany(e => e.Rides);
+        .HasMany(e => e.AuthorReviews)
+        .WithOne(e => e.AuthorUser);
 
 
+        modelBuilder.Entity<RideUser>()
+            .HasOne(e => e.User)
+            .WithMany(u => u.RideUsers)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<RideUser>()
+            .HasOne(e => e.Ride)
+            .WithMany(u => u.RideUsers)
+            .OnDelete(DeleteBehavior.Restrict);
 
 
-        //modelBuilder.Entity<User>().HasData(InitialData.Users);
-        //modelBuilder.Entity<Ride>().HasData(InitialData.Rides);
-        //modelBuilder.Entity<VehiculeModel>().HasData(InitialData.VehiculeModels);
-        //modelBuilder.Entity<Review>().HasData(InitialData.Reviews);
+        // Initial Data des véhicules de Base
+        modelBuilder.Entity<VehiculeModel>().HasData(InitialData.VehiculeModels);
+
+        // Initial Data de test pré-remplis
+        modelBuilder.Entity<User>().HasData(InitialTestData.Users);
+        modelBuilder.Entity<Ride>().HasData(InitialTestData.Rides);
+        modelBuilder.Entity<Review>().HasData(InitialTestData.Reviews);
+        //modelBuilder.Entity<VehiculeModel>().HasData(InitialTestData.VehiculeModels);
+        modelBuilder.Entity<RideUser>().HasData(InitialTestData.RideUsers);
+
 
     }
 

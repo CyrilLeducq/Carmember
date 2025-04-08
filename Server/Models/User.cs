@@ -34,7 +34,7 @@ public class User
     [StringLength(20) , Column("phone_number")]
     public string? PhoneNumber { get; set; }
 
-    [StringLength(200) , Column("profile_picture")]
+    [StringLength(500) , Column("profile_picture")]
     public string? ProfilePicture { get; set; }
 
     [StringLength(50) , Column("gender")]
@@ -50,15 +50,19 @@ public class User
 
 
 
-    [StringLength(36), Column("id_vehicule_model")]
-    public Guid? IdVehiculeModel { get; set; }
+    [StringLength(36), Column("vehicule_model_id")]
+    public Guid? VehiculeModelId { get; set; }
 
     public VehiculeModel? VehiculeModel { get; set; }
 
 
-    public List<Review>? Reviews { get; set; } = new List<Review>();
+    public List<Review>? ReviewedReviews { get; set; } = new List<Review>();
+    public List<Review>? AuthorReviews { get; set; } = new List<Review>();
 
-    public List<Ride>? Rides { get; set; } = new List<Ride>();
 
+    public List<Ride> ConductorRides { get; set; } = new List<Ride>();
+
+
+    public List<RideUser> RideUsers { get; set; } = new List<RideUser>();
 
 }

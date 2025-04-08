@@ -55,6 +55,9 @@ namespace CarMember_server.Repositories
             if (rideFromDb.DepartureDate != ride.DepartureDate)
                 rideFromDb.DepartureDate = ride.DepartureDate;
 
+            if (rideFromDb.DriverUserId != ride.DriverUserId)
+                rideFromDb.DriverUserId = ride.DriverUserId;
+
             if (rideFromDb.DepartureLocationCity != ride.DepartureLocationCity)
                 rideFromDb.DepartureLocationCity = ride.DepartureLocationCity;
 

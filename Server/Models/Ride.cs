@@ -36,8 +36,8 @@ public class Ride
     public int CostHeight { get; set; }
 
     [Required]
-    [StringLength(100), Column("cost_cheese_type")]
-    public string CostCheeseType { get; set; }
+    [Column("cost_cheese_type")]
+    public Cheesetype CostCheeseType { get; set; }
 
 
     [Required]
@@ -57,7 +57,14 @@ public class Ride
     public TalkingReference TalkingReference { get; set; }
 
 
-    public List<User>? Users { get; set; } = new List<User>();
+
+    [Column("driver_user_id")]
+    public Guid DriverUserId { get; set; }
+
+    public User DriverUser { get; set; }
+
+
+    public List<RideUser> RideUsers { get; set; } = new List<RideUser>();
 
 }
 
@@ -70,13 +77,13 @@ public enum MusicalPreference
 }
 public enum AnimalPreference
 {
-    accepte,
-    non_accepte
+    non_accepte,
+    accepte
 }
 public enum SmokingReference
 {
-    accepte,
-    non_accepte
+    non_accepte,
+    accepte
 }
 public enum TalkingReference
 {
@@ -84,5 +91,9 @@ public enum TalkingReference
     peu_bavard,
     bavard, 
     pipelette
+
+}public enum Cheesetype
+{
+    x,y
 }
 
