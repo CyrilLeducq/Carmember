@@ -6,6 +6,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Text.Json.Serialization;
 using CarMember_server.Data;
+using CarMember_server.Models;
+using CarMember_server.Repositories;
 
 namespace CarMember_server.Helpers;
 
@@ -77,7 +79,11 @@ public static class DependencyInjectionExtensions
 
     private static void AddRepositories(this WebApplicationBuilder builder)
     {
-        //builder.Services.AddScoped<IRepository<Client, int>, ClientRepository>();
+        builder.Services.AddScoped<IRepository<Review, Guid>, ReviewRepository>();
+        builder.Services.AddScoped<IRepository<Ride, Guid>, RideRepository>();
+        builder.Services.AddScoped<IRepository<RideUser, Guid>, RideUserRepository>();
+        builder.Services.AddScoped<IRepository<User, Guid>, UserRepository>();
+        builder.Services.AddScoped<IRepository<VehiculeModel, Guid>, VehiculeModelRepository>();
     }
 
 
