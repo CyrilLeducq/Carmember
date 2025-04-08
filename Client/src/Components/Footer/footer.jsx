@@ -14,7 +14,7 @@ function Footer() {
                 <li>Qui sommes nous? </li>
                 <li>Information Légales</li>
                 <li>Cookies</li>
-                <li>Contact</li>
+                <li> <a href="/Contact"> Contact</a></li>
             </ul> 
             <ul className="footer-reseau">
                 <li><a href=""><img src={facebook} alt="" className="logo-reseau" /></a></li>

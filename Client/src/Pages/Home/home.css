@@ -2,9 +2,48 @@
     width: 100%;
     object-fit: cover;
 }
+.home-contenant{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .card-conteneur{
     margin-top: 10rem;
-    display: grid;
+    display: flex;
+    gap: 3%; 
+}
+.carnew-component{
+    background-color: #1B998B;
+    width: 100%;
+}
+.title{
+    font-family: 'Kanopi Brazil', sans-serif;
+    font-weight: 200;
+    font-size: 40px;
+    color: white;
+}
+.carnew-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.9rem;
+}
+.card-bloq{
+    display: flex   ;
     justify-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom: 5rem;
+    align-items: center;
+    justify-content: center;
+    gap: 3%;
+}
+.banner-text{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    padding: 7%;
+}
+.gifaccueil{
+    font-size: 75px;
 }

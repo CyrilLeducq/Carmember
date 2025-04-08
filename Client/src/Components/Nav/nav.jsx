@@ -13,13 +13,14 @@ function Nav() {
   return (
     <div className="nav-components">
       <div className="nav-name">
-        <a href="">
+        <a href="/">
         <img src={Nom} alt="logo de car'member" />
         </a>
       </div>
     <div className="button-component">
-
-      <button className="nav-button-publi">Publier un <br></br> trajet</button>
+      <a href="/Publish">
+        <button className="nav-button-publi"> Publier un <br></br> trajet</button> 
+      </a>
 
       <div className="nav-profil-container">
         <button className="nav-button-profil" onClick={toggleAccordion}>
@@ -53,9 +54,9 @@ function Nav() {
           <div className="nav-accordion">
             <a href="/">Connexion</a>
             <hr />
-            <a href="/">Inscription</a>
+            <a href="/Subscrire">Inscription</a>
             <hr />
-            <a href="/">Profil</a>
+            <a href="/Profil">Profil</a>
             <hr />
             <a href="/">Déconnexion</a>
           </div>

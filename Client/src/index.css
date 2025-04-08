@@ -2,4 +2,11 @@
     background-color: #000A27;
     font-family: "Tilt Warp", sans-serif;
 }
+@font-face {
+    font-family: 'Kanopi Brazil';
+    src: url("../public/Font/KanopiBrazil-Regular.otf") format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
 

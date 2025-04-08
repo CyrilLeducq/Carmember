@@ -1,0 +1,41 @@
+.form-contenant{
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    align-items: center;
+}
+.email, 
+.subject{
+    width: 360px;
+    height: 48px;
+   
+}
+.message{
+    width: 360px;
+    height: 442px;
+}
+.email, 
+.subject, 
+.message{
+    border: none;
+    border-radius:16px;
+    padding: 8px;
+    color: #474c5A;
+    font-weight: 900;
+}
+textarea{
+    color: #474c5A;
+}
+.message::placeholder {
+    color: #474c5A;
+}
+.email::placeholder{
+    color: #474c5A;
+}
+.subject::placeholder{
+    color: #474c5A;
+}
+.error-messag{
+    color: #f7753D;
+    font-size: 14px;
+}
