@@ -6,7 +6,7 @@ namespace CarMember_server.DTOs.UsersDTO
     {
         public bool IsSuccessful { get; set; }
 
-        public string? Message { get; set; }
+        public string? ErrorMessage { get; set; }
 
         public VehiculeModel? VehiculeModel { get; set; }
     }
