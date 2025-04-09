@@ -25,9 +25,9 @@ public class VehiculeModelRepository : IRepository <VehiculeModel , Guid>
 
     public async Task<VehiculeModel?> Get(Expression<Func<VehiculeModel, bool>> predicate) => await _db.VehiculeModels.FirstOrDefaultAsync(predicate);
 
-    public async Task<IEnumerable<VehiculeModel>> GetAll() => _db.VehiculeModels;
+    public async Task<IEnumerable<VehiculeModel>> GetAll() => await _db.VehiculeModels.ToListAsync();
 
-    public async Task<IEnumerable<VehiculeModel>> GetAll(Expression<Func<VehiculeModel, bool>> predicate) => _db.VehiculeModels.Where(predicate);
+    public async Task<IEnumerable<VehiculeModel>> GetAll(Expression<Func<VehiculeModel, bool>> predicate) => await _db.VehiculeModels.Where(predicate).ToListAsync();
 
     public async Task<VehiculeModel?> Update(VehiculeModel vehiculeModel)
     {

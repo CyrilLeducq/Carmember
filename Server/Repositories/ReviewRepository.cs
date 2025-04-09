@@ -25,9 +25,9 @@ public class ReviewRepository : IRepository<Review, Guid>
 
     public async Task<Review> Get(Expression<Func<Review, bool>> predicate) => await _db.Reviews.FirstOrDefaultAsync(predicate);
 
-    public async Task<IEnumerable<Review>> GetAll() => _db.Reviews;
+    public async Task<IEnumerable<Review>> GetAll() => await _db.Reviews.ToListAsync();
 
-    public async Task<IEnumerable<Review>> GetAll(Expression<Func<Review, bool>> predicate) => _db.Reviews.Where(predicate);
+    public async Task<IEnumerable<Review>> GetAll(Expression<Func<Review, bool>> predicate) => await _db.Reviews.Where(predicate).ToListAsync();
 
     public async Task<Review> GetById(Guid id) => await _db.Reviews.FindAsync(id);
 
