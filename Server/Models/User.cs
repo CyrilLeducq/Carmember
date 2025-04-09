@@ -14,7 +14,7 @@ public class User
     public string FirstName { get; set; }
 
     [Required]
-    [StringLength(50) , Column("lasttname")]
+    [StringLength(50) , Column("lastname")]
     public string LastName { get; set; }
 
     [Required]

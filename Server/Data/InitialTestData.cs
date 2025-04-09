@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Reflection;
+using CarMember_server.Helpers;
 using CarMember_server.Models;
 
 namespace CarMember_server.Data;
@@ -16,7 +17,7 @@ public class InitialTestData
                     Password= "TODO",
                     PasswordSalt= "TODO",
                     CreationDate= new DateTime(2025,04,01),
-                    Role= "admin",
+                    Role= Constants.RoleAdmin,
                     VehiculeModelId = Guid.Parse("2eefbb1b-b7b0-4d0d-834a-90ca46f636c2"), // Modele Chevre O Lait
                     PhoneNumber= "+3368856115" ,
                     Gender= "F"
@@ -29,7 +30,7 @@ public class InitialTestData
                     Password= "TODO",
                     PasswordSalt= "TODO",
                     CreationDate= new DateTime(2025,04,02),
-                    Role= "user",
+                    Role= Constants.RoleUsers,
                     VehiculeModelId= Guid.Parse("66a15c74-4ee7-477d-85b2-a3f084c58142"), // Modele Munster Truck
                     PhoneNumber= "+3361142415" ,
                     Gender= "H"
@@ -41,7 +42,7 @@ public class InitialTestData
                     Password= "TODO",
                     PasswordSalt= "TODO",
                     CreationDate= new DateTime(2025,04,03),
-                    Role= "user",
+                    Role= Constants.RoleUsers,
                     PhoneNumber= "+336888815" ,
                     Gender= "H"
             }
@@ -60,7 +61,7 @@ public class InitialTestData
                     ArrivalLocationAdress=  "6 Avenue des Champs Elysées"  ,
                     Duration=  180 ,
                     CostHeight=  1000 ,
-                    CostCheeseType=  Cheesetype.y  ,
+                    CostCheeseType=  Cheesetype.Burrata  ,
                     MusicalReference=  MusicalPreference.beaucoup  ,
                     AnimalReference= AnimalPreference.accepte   ,
                     SmokingReference= SmokingReference.accepte  ,
@@ -76,7 +77,7 @@ public class InitialTestData
                     ArrivalLocationAdress=  "4 parvis Victor Hugo, Dunkerque"  ,
                     Duration=  60 ,
                     CostHeight=  600 ,
-                    CostCheeseType=  Cheesetype.x ,
+                    CostCheeseType=  Cheesetype.Beaufort_AOP ,
                     MusicalReference=  MusicalPreference.normal  ,
                     AnimalReference= AnimalPreference.non_accepte   ,
                     SmokingReference= SmokingReference.non_accepte  ,
