@@ -41,19 +41,19 @@ public class Ride
 
 
     [Required]
-    [Column("musical_preference ")]
+    [Column("musical_preference")]
     public MusicalPreference MusicalReference { get; set; }
 
     [Required]
-    [Column("animal_preference ")]
+    [Column("animal_preference")]
     public AnimalPreference AnimalReference { get; set; }
 
     [Required]
-    [Column("smoking_preference  ")]
+    [Column("smoking_preference")]
     public SmokingReference SmokingReference { get; set; }
 
     [Required]
-    [Column("talking_preference  ")]
+    [Column("talking_preference")]
     public TalkingReference TalkingReference { get; set; }
 
 
