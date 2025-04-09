@@ -9,7 +9,7 @@ public interface IUserService
     Task<IEnumerable<UserProfilResponseDTO>> GetAll();
     Task<UserProfilResponseDTO?> GetById(UserProfilRequestDTO UserProfilRequest);
     Task<UserProfilResponseDTO?> GetByEmail(UserProfilRequestDTO UserProfilRequest);
-    Task<UserProfilResponseDTO> Create(UserProfilRequestDTO UserProfilRequest);
-    Task<UserProfilResponseDTO> Update(Guid id, UserProfilRequestDTO UserProfilRequest);
-    Task Delete(int id);
+    Task<UserRegisterResponseDTO> Create(UserRegisterRequestDTO UserRegisterRequest);
+    Task<UserUpdateResponseDTO> Update(UserUpdateRequestDTO UserProfilRequest);
+    Task<UserDeleteProfilRequestDTO> Delete(UserDeleteProfilRequestDTO UserDeleteRequest);
 }

@@ -18,20 +18,21 @@ namespace CarMember_server.Servicies
             _mapper = mapper;
         }
 
-
-        public async Task Delete(int id)
+        public async Task<UserRegisterResponseDTO> Create(UserRegisterRequestDTO UserRegisterRequest)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<UserProfilResponseDTO> Create(UserProfilRequestDTO UserProfilRequest)
+        public async Task<UserDeleteProfilRequestDTO> Delete(UserDeleteProfilRequestDTO UserDeleteRequest)
         {
             throw new NotImplementedException();
         }
+
         public async Task<IEnumerable<UserProfilResponseDTO>> GetAll()
         {
             return _mapper.Map<IEnumerable<UserProfilResponseDTO>>(
-                await _userRepository.GetAll());
+                await _userRepository.GetAll() 
+                );
         }
 
         public async Task<UserProfilResponseDTO?> GetByEmail(UserProfilRequestDTO UserProfilRequest)
@@ -44,9 +45,11 @@ namespace CarMember_server.Servicies
             throw new NotImplementedException();
         }
 
-        public async Task<UserProfilResponseDTO> Update(Guid id, UserProfilRequestDTO UserProfilRequest)
+        public async Task<UserUpdateResponseDTO> Update(UserUpdateRequestDTO UserProfilRequest)
         {
             throw new NotImplementedException();
         }
+
+
     }
 }
