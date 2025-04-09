@@ -1,5 +1,88 @@
-
-form{
+/* Conteneur principal */
+.contenant {
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+  }
+  .name{
+    display: flex;
+    gap: 8%;
+  }
+.genre-anniv{
+    display: flex;
+    gap: 9%;
+}
+.email-sub,
+.password-sub{
+    width: 295px;
+    height: 60px;
+    border-radius: 15px;
+    border: none;
+}
+  form {
     display: flex;
     flex-direction: column;
-}
+    gap: 15px;
+  }
+ .date{
+    width: 132px;
+    height: 60px;
+    border-radius: 15px;
+    border: none;
+ }
+
+  .form-check-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: white;
+  }
+  
+  /* Erreur */
+  form p {
+    margin: 0;
+    font-size: 14px;
+  }
+  .form-control{
+    width: 132px;
+    height: 60px;
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+  }
+
+  .question {
+    margin-top: 10px;
+    color: white;
+  }
+  
+  .btn-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .submit-connex,
+  .submit-envoi {
+
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    width: 132px;
+    height: 60px;
+  }
+  
+  .submit-connex {
+    background-color: #00b18f;
+  }
+  
+  .submit-envoi {
+    background-color: #ff6f3d;
+  }
+  

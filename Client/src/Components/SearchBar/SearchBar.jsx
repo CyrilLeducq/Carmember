@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../SearchBar/SearchBar.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function SearchBar() {
   const [startDate, setStartDate] = useState(null);
@@ -19,7 +20,7 @@ function SearchBar() {
   if (!apiKey) {
     console.warn("⚠️ Clé API GeoDB absente. Vérifie ton fichier .env.local");
   }
-
+  const navigate = useNavigate();
   const handleCalendarClick = () => setIsOpen(!isOpen);
   const togglePassengerDropdown = () => setIsPassengerOpen(!isPassengerOpen);
   const incrementPassenger = () => setPassengerCount((prev) => prev + 1);
@@ -54,13 +55,15 @@ function SearchBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const searchData = {
+  
+    const params = new URLSearchParams({
       departure,
       destination,
-      date: startDate,
-      passengers: passengerCount,
-    };
-    console.log("Données de recherche :", searchData);
+      date: startDate ? startDate.toISOString().split("T")[0] : "",
+      passengers: passengerCount.toString(),
+    });
+  
+    navigate(`/Rechercher?${params.toString()}`);
   };
 
   return (

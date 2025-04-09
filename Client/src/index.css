@@ -10,3 +10,8 @@
   }
   
 
+  .title-cheese{
+    display: flex;
+    gap: 2%;
+    justify-content: center;
+}

@@ -1,12 +1,12 @@
 import React from "react";
-import "./CardNewTrajet.css";
+import "./cardNewTrajetHori.css";
 
 
-function CarNewTrajet({ townD, townA, date, departure, arrive, place, price }) {
+function CarNewTrajetHori({ townD, townA, date, departure, arrive, place, price }) {
 return (
 <div className="carnewtrajet-component">
     <div className="header">
-    <h3>{townD}→{townA}</h3>
+        <h3>{townD}→{townA}</h3>
     </div>
     <div className="content">
         <div className="info-line">
@@ -54,4 +54,4 @@ return (
 );
 }
 
-export default CarNewTrajet;
+export default CarNewTrajetHori;

@@ -52,7 +52,7 @@ function Nav() {
 
         {isOpen && (
           <div className="nav-accordion">
-            <a href="/">Connexion</a>
+            <a href="/Connexion">Connexion</a>
             <hr />
             <a href="/Subscrire">Inscription</a>
             <hr />

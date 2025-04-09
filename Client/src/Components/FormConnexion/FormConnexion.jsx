@@ -1,17 +1,22 @@
+import "../FormConnexion/formConnexion.css"
 
 function FormConnexion() {
 return (
-<div>
+<div className="form-connexion-contenant">
     <form>
-        <div class="mb-3">
-            <label for="inputEmail" class="form-label">Votre adresse mail</label>
-            <input type="email" class="form-control" id="inputEmail" required />
+        <div class="Connexion-email">
+            <input type="email" class="form-control-connect" id="inputEmail" placeholder="Email" required />
         </div>
-        <div class="mb-3">
-            <label for="inputPassword" class="form-label">Mot de passe</label>
-            <input type="password" class="form-control" id="inputPassword" required/>
+        <div class="connexion-mdp">
+            <input type="password" class="form-control-connect" id="inputPassword" placeholder="Mot de passe" required/>
         </div>
-        <button type="submit" class="btn btn-primary">Connexion</button>
+        <label className="form-check-label">
+          <input type="checkbox" name="newsletter" className="form-check-input" /> Se souvenir de moi
+        </label>
+        <div className="envoi">
+            <button type="submit" class="submit">Connexion</button>
+        </div>
+        
     </form>
 </div>
 );

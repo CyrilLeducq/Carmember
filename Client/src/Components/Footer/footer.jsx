@@ -13,7 +13,7 @@ function Footer() {
                <ul className="footer-liens">
                 <li>Qui sommes nous? </li>
                 <li>Information Légales</li>
-                <li>Cookies</li>
+                <li><a href="/Cookies"> Cookies</a></li>
                 <li> <a href="/Contact"> Contact</a></li>
             </ul> 
             <ul className="footer-reseau">

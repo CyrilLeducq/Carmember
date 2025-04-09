@@ -1,8 +1,13 @@
 import { useState, useRef } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { registerLocale } from 'react-datepicker';
+import fr from 'date-fns/locale/fr'; // pour français
 import '../FormRegistration/FormRegistration.css';
 
+registerLocale('fr', fr);
+
 function FormRegistration() {
-  const [step, setStep] = useState(1);
   const formRef = useRef();
   const [erreur, setErreur] = useState('');
 
@@ -23,8 +28,15 @@ function FormRegistration() {
     }));
   };
 
-  const calculerAge = (dateStr) => {
-    const dateNaissance = new Date(dateStr);
+  const handleDateChange = (date) => {
+    setFormData(prev => ({
+      ...prev,
+      birthdate: date
+    }));
+  };
+
+  const calculerAge = (date) => {
+    const dateNaissance = new Date(date);
     const aujourdHui = new Date();
     let age = aujourdHui.getFullYear() - dateNaissance.getFullYear();
     const m = aujourdHui.getMonth() - dateNaissance.getMonth();
@@ -34,32 +46,20 @@ function FormRegistration() {
     return age;
   };
 
-  const nextStep = () => {
-    const form = formRef.current;
-    if (form && form.checkValidity()) {
-      if (step === 2) {
-        const age = calculerAge(formData.birthdate);
-        if (age < 18) {
-          setErreur("Tu n'es pas majeur.");
-          return;
-        } else {
-          setErreur('');
-        }
-      }
-      setStep(prev => prev + 1);
-    } else {
-      form.reportValidity();
-    }
-  };
-
-  const prevStep = () => setStep(prev => prev - 1);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = formRef.current;
     if (form && form.checkValidity()) {
+      const age = calculerAge(formData.birthdate);
+      if (age < 18) {
+        setErreur("Tu n'es pas majeur.");
+        return;
+      } else {
+        setErreur('');
+      }
+
       console.log("Données finales :", formData);
-      alert('Formulaire validé !'      );
+      alert('Formulaire validé !');
     } else {
       form.reportValidity();
     }
@@ -68,100 +68,59 @@ function FormRegistration() {
   return (
     <div className='contenant'>
       <form ref={formRef} onSubmit={handleSubmit}>
-        {step === 1 && (
-          <>
-            <label htmlFor="firstName">Prénom</label>
-            <input
-              className="form-control"
-              id="firstName"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              required
-            />
-            <label htmlFor="lastName">Nom</label>
-            <input
-              className="form-control"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              required
-            />
+        <div className="name">
+          <input className="form-control" id="firstName" name="firstName" value={formData.firstName}
+            onChange={handleChange} required placeholder='Prénom' />
+          <input className="form-control" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange}
+            required placeholder='Nom' />
+        </div>
+        <div className="genre-anniv">
+          <DatePicker
+            selected={formData.birthdate}
+            onChange={handleDateChange}
+            locale="fr"
+            placeholderText="Anniversaire"
+            className="form-control"
+            dateFormat="dd/MM/yyyy"
+            maxDate={new Date()}
+            showMonthDropdown
+            showYearDropdown
+            dropdownMode="select"
+            name="birthdate"
+            required
+          />
 
-            <button type="button" className="btn btn-primary" onClick={nextStep}>Suivant</button>
-          </>
-        )}
+          <select className="form-control" name="genre" value={formData.genre} onChange={handleChange} required>
+            <option value="">Genre</option>
+            <option value="man">Homme</option>
+            <option value="woman">Femme</option>
+            <option value="other">Autre</option>
+          </select>
+        </div>
 
-        {step === 2 && (
-          <>
-            <fieldset className="btn-group" role="group" aria-label="Choix du genre">
-              <legend>Genre</legend>
-              <input type="radio" className="btn-check" name="genre" id="man" value="man"
-                checked={formData.genre === 'man'} onChange={handleChange} required />
-              <label className="btn btn-outline-primary" htmlFor="man">Homme</label>
+        {erreur && <p style={{ color: 'red' }}>{erreur}</p>}
 
-              <input type="radio" className="btn-check" name="genre" id="woman" value="woman"
-                checked={formData.genre === 'woman'} onChange={handleChange} />
-              <label className="btn btn-outline-primary" htmlFor="woman">Femme</label>
+        <input type="email" className="email-sub" id="inputEmail" name="email" value={formData.email}
+          onChange={handleChange} placeholder='Email' required />
 
-              <input type="radio" className="btn-check" name="genre" id="other" value="other"
-                checked={formData.genre === 'other'} onChange={handleChange} />
-              <label className="btn btn-outline-primary" htmlFor="other">Autre</label>
-            </fieldset>
+        <input type="password" className="password-sub" id="inputPassword" name="password" value={formData.password}
+          onChange={handleChange} placeholder='Mot de passe' required
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$"
+          title="Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial." />
 
-            <label htmlFor="birthdate">Date de naissance :</label>
-            <input
-              type="date"
-              id="birthdate"
-              name="birthdate"
-              value={formData.birthdate}
-              onChange={handleChange}
-              required
-            />
+        <label className="form-check-label">
+          <input type="checkbox" name="newsletter" className="form-check-input" /> J'accepte de recevoir la newsletter
+        </label>
 
-            {erreur && <p style={{ color: 'red' }}>{erreur}</p>}
+        <span className='question'>Déjà inscrit(e)?</span>
 
-            <div className="d-flex gap-2">
-              <button type="button" className="btn btn-secondary" onClick={prevStep}>Retour</button>
-              <button type="button" className="btn btn-primary" onClick={nextStep}>Suivant</button>
-            </div>
-          </>
-        )}
-
-        {step === 3 && (
-          <>
-            <label htmlFor="inputEmail">Votre adresse mail</label>
-            <input
-              type="email"
-              className="form-control"
-              id="inputEmail"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-
-            <label htmlFor="inputPassword">Mot de passe</label>
-            <input
-              type="password"
-              className="form-control"
-              id="inputPassword"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$"
-              title="Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial."
-            />
-            <div className="d-flex gap-2">
-              <button type="button" className="btn btn-secondary" onClick={prevStep}>Retour</button>
-              <button type="submit" className="btn btn-success">S'inscrire</button>
-            </div>
-          </>
-        )}
+        <div className="btn-group">
+          <button type="submit" className="submit-connex">Connexion</button>
+          <button type="submit" className="submit-envoi">Valider</button>
+        </div>
       </form>
     </div>
   );
 }
+
 export default FormRegistration;

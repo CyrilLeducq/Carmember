@@ -1,9 +1,4 @@
-.title-cheese{
-    display: flex;
-    align-items: center;
-    gap: 1%;
-    justify-content: center;
-}
+
 .contact-contenant {
     margin-top: 5%;
     display: flex;

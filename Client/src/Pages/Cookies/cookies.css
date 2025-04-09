@@ -1,0 +1,11 @@
+.cookies-contenant{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32px;
+}
+.cookie-text{
+    width: 50%;
+    margin-top: 32px;
+}
