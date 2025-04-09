@@ -5,6 +5,9 @@ namespace CarMember_server.DTOs.UsersDTO
 {
     public class VehiculeModelUpdateRequestDTO
     {
+        [Required(ErrorMessage = "L'identifiant du modèle est obligatoire.")]
+        public Guid Id { get; set; }
+
         [Required(ErrorMessage = "La catégorie du véhicule est obligatoire.")]
         public VehiculeCategory Category { get; set; }
 

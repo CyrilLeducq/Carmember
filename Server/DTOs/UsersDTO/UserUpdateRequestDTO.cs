@@ -4,6 +4,9 @@ namespace CarMember_server.DTOs.UsersDTO
 {
     public class UserUpdateRequestDTO
     {
+        [Required]
+        public Guid Id { get; set; }
+
         [RegularExpression(@"^[A-Z][a-zA-Z'-]*$", ErrorMessage = "Le prénom doit débuter avec une lettre majuscule !")]
         public string? FirstName { get; set; }
 
@@ -18,11 +21,14 @@ namespace CarMember_server.DTOs.UsersDTO
         public string? PhoneNumber { get; set; }
 
         [DataType(DataType.Password)]
-        [PasswordValidator]
-        public string? Password { get; set; }
+        [StringLength(100, MinimumLength = 6, ErrorMessage = "Le mot de passe doit avoir au moins 6 caractères.")]
+        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{6,}$", ErrorMessage = "Le mot de passe doit contenir au moins une lettre et un chiffre.")]
+        public string? Password { get; set; }}
 
+        [Url(ErrorMessage = "Le lien de l'image de profil est invalide.")]
         public string? ProfilePicture { get; set; }
 
+        [RegularExpression(@"^(Masculin|Feminin|Autre)$", ErrorMessage = "Le genre doit être 'Masculin', 'Feminin', ou 'Autre'.")]
         public string? Gender { get; set; }
 
     }
