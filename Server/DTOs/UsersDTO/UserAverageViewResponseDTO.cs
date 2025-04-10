@@ -2,6 +2,10 @@
 {
     public class UserAverageViewResponseDTO
     {
+        public bool IsSuccessful { get; set; }
+
+        public string? ErrorMessage { get; set; }
+
         public Guid UserId { get; set; }
 
         public string FirstName { get; set; }
