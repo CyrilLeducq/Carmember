@@ -2,6 +2,11 @@
 {
     public class UserViewAllReviewsResponseDTO
     {
+        public bool IsSuccessful { get; set; }
+
+        // Message d'erreur en cas d'échec
+        public string ErrorMessage { get; set; }
+
         public List<ReviewResponseDTO> Reviews { get; set; }
     }
 
