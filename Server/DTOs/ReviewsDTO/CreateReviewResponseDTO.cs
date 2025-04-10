@@ -18,5 +18,6 @@
         public Guid ReviewedUserId { get; set; }
 
         public string? ReviewedUserName { get; set; }
+        //
     }
 }
