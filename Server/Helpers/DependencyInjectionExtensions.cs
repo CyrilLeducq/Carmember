@@ -8,6 +8,8 @@ using System.Text.Json.Serialization;
 using CarMember_server.Data;
 using CarMember_server.Models;
 using CarMember_server.Repositories;
+using CarMember_server.Servicies.Interfaces;
+using CarMember_server.Servicies;
 
 namespace CarMember_server.Helpers;
 
@@ -29,6 +31,8 @@ public static class DependencyInjectionExtensions
         builder.AddRepositories();
 
         builder.AddServices();
+
+        builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
@@ -82,8 +86,9 @@ public static class DependencyInjectionExtensions
         builder.Services.AddScoped<IRepository<Review, Guid>, ReviewRepository>();
         builder.Services.AddScoped<IRepository<Ride, Guid>, RideRepository>();
         builder.Services.AddScoped<IRepository<RideUser, Guid>, RideUserRepository>();
-        builder.Services.AddScoped<IRepository<User, Guid>, UserRepository>();
         builder.Services.AddScoped<IRepository<VehiculeModel, Guid>, VehiculeModelRepository>();
+        //builder.Services.AddScoped<IRepository<User, Guid>, UserRepository>();
+        builder.Services.AddScoped<UserRepository>();
     }
 
 
@@ -92,7 +97,8 @@ public static class DependencyInjectionExtensions
     private static void AddServices(this WebApplicationBuilder builder)
     {
         //builder.Services.AddHostedService<FirstRunService>();
-        //builder.Services.AddScoped<IClientService, ClientService>();
+        
+        builder.Services.AddScoped<IUserService, UserService>();
     }
 
 

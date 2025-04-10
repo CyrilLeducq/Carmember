@@ -81,7 +81,7 @@ namespace CarMember_server.Migrations
 
                     b.Property<int>("AnimalReference")
                         .HasColumnType("int")
-                        .HasColumnName("animal_preference ");
+                        .HasColumnName("animal_preference");
 
                     b.Property<string>("ArrivalLocationAdress")
                         .IsRequired()
@@ -129,15 +129,15 @@ namespace CarMember_server.Migrations
 
                     b.Property<int>("MusicalReference")
                         .HasColumnType("int")
-                        .HasColumnName("musical_preference ");
+                        .HasColumnName("musical_preference");
 
                     b.Property<int>("SmokingReference")
                         .HasColumnType("int")
-                        .HasColumnName("smoking_preference  ");
+                        .HasColumnName("smoking_preference");
 
                     b.Property<int>("TalkingReference")
                         .HasColumnType("int")
-                        .HasColumnName("talking_preference  ");
+                        .HasColumnName("talking_preference");
 
                     b.HasKey("Id");
 
@@ -152,7 +152,7 @@ namespace CarMember_server.Migrations
                             AnimalReference = 1,
                             ArrivalLocationAdress = "6 Avenue des Champs Elysées",
                             ArrivalLocationCity = "Paris",
-                            CostCheeseType = 1,
+                            CostCheeseType = 6,
                             CostHeight = 1000,
                             DepartureDate = new DateTime(2025, 4, 20, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartureLocationAdress = "3 rue Faidherbe",
@@ -169,7 +169,7 @@ namespace CarMember_server.Migrations
                             AnimalReference = 0,
                             ArrivalLocationAdress = "4 parvis Victor Hugo, Dunkerque",
                             ArrivalLocationCity = "Dunkerque",
-                            CostCheeseType = 0,
+                            CostCheeseType = 2,
                             CostHeight = 600,
                             DepartureDate = new DateTime(2025, 4, 16, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartureLocationAdress = "3 rue Faidherbe, 59000 Lille",
@@ -244,7 +244,7 @@ namespace CarMember_server.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
-                        .HasColumnName("lasttname");
+                        .HasColumnName("lastname");
 
                     b.Property<string>("Password")
                         .IsRequired()

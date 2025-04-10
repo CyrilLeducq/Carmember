@@ -33,7 +33,7 @@ namespace CarMember_server.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     firstname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    lasttname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    lastname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     email = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     password_salt = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -93,10 +93,10 @@ namespace CarMember_server.Migrations
                     duration = table.Column<int>(type: "int", nullable: false),
                     cost_height = table.Column<int>(type: "int", nullable: false),
                     cost_cheese_type = table.Column<int>(type: "int", nullable: false),
-                    musical_preference = table.Column<int>(name: "musical_preference ", type: "int", nullable: false),
-                    animal_preference = table.Column<int>(name: "animal_preference ", type: "int", nullable: false),
-                    smoking_preference = table.Column<int>(name: "smoking_preference  ", type: "int", nullable: false),
-                    talking_preference = table.Column<int>(name: "talking_preference  ", type: "int", nullable: false),
+                    musical_preference = table.Column<int>(type: "int", nullable: false),
+                    animal_preference = table.Column<int>(type: "int", nullable: false),
+                    smoking_preference = table.Column<int>(type: "int", nullable: false),
+                    talking_preference = table.Column<int>(type: "int", nullable: false),
                     driver_user_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -137,7 +137,7 @@ namespace CarMember_server.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "creation_date", "email", "firstname", "gender", "lasttname", "password", "password_salt", "phone_number", "profile_picture", "role", "vehicule_model_id" },
+                columns: new[] { "Id", "creation_date", "email", "firstname", "gender", "lastname", "password", "password_salt", "phone_number", "profile_picture", "role", "vehicule_model_id" },
                 values: new object[] { new Guid("315dd23f-0155-4196-90eb-f00e2db27014"), new DateTime(2025, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "edmond.dor@mail.com", "Edmond", "H", "d'Or", "TODO", "TODO", "+336888815", null, "user", null });
 
             migrationBuilder.InsertData(
@@ -151,12 +151,12 @@ namespace CarMember_server.Migrations
 
             migrationBuilder.InsertData(
                 table: "Rides",
-                columns: new[] { "Id", "animal_preference ", "arrival_location_adress", "arrival_location_city", "cost_cheese_type", "cost_height", "departure_date", "departure_location_adress", "departure_location_city", "driver_user_id", "duration", "musical_preference ", "smoking_preference  ", "talking_preference  " },
-                values: new object[] { new Guid("4253b6c2-a9ae-4ea9-97b4-2e88d5348a56"), 0, "4 parvis Victor Hugo, Dunkerque", "Dunkerque", 0, 600, new DateTime(2025, 4, 16, 9, 0, 0, 0, DateTimeKind.Unspecified), "3 rue Faidherbe, 59000 Lille", "Lille", new Guid("315dd23f-0155-4196-90eb-f00e2db27014"), 60, 2, 0, 1 });
+                columns: new[] { "Id", "animal_preference", "arrival_location_adress", "arrival_location_city", "cost_cheese_type", "cost_height", "departure_date", "departure_location_adress", "departure_location_city", "driver_user_id", "duration", "musical_preference", "smoking_preference", "talking_preference" },
+                values: new object[] { new Guid("4253b6c2-a9ae-4ea9-97b4-2e88d5348a56"), 0, "4 parvis Victor Hugo, Dunkerque", "Dunkerque", 2, 600, new DateTime(2025, 4, 16, 9, 0, 0, 0, DateTimeKind.Unspecified), "3 rue Faidherbe, 59000 Lille", "Lille", new Guid("315dd23f-0155-4196-90eb-f00e2db27014"), 60, 2, 0, 1 });
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "creation_date", "email", "firstname", "gender", "lasttname", "password", "password_salt", "phone_number", "profile_picture", "role", "vehicule_model_id" },
+                columns: new[] { "Id", "creation_date", "email", "firstname", "gender", "lastname", "password", "password_salt", "phone_number", "profile_picture", "role", "vehicule_model_id" },
                 values: new object[,]
                 {
                     { new Guid("49f88bba-7235-44b3-9b03-2396a5d086a8"), new DateTime(2025, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "mozart.ella@mail.com", "Mozart", "F", "Ella", "TODO", "TODO", "+3368856115", null, "admin", new Guid("2eefbb1b-b7b0-4d0d-834a-90ca46f636c2") },
@@ -174,8 +174,8 @@ namespace CarMember_server.Migrations
 
             migrationBuilder.InsertData(
                 table: "Rides",
-                columns: new[] { "Id", "animal_preference ", "arrival_location_adress", "arrival_location_city", "cost_cheese_type", "cost_height", "departure_date", "departure_location_adress", "departure_location_city", "driver_user_id", "duration", "musical_preference ", "smoking_preference  ", "talking_preference  " },
-                values: new object[] { new Guid("95df620f-ae38-4e5a-8894-41332c14c4c5"), 1, "6 Avenue des Champs Elysées", "Paris", 1, 1000, new DateTime(2025, 4, 20, 15, 0, 0, 0, DateTimeKind.Unspecified), "3 rue Faidherbe", "Lille", new Guid("6d4b945a-8e33-4008-af4c-37fc28b893a4"), 180, 3, 1, 3 });
+                columns: new[] { "Id", "animal_preference", "arrival_location_adress", "arrival_location_city", "cost_cheese_type", "cost_height", "departure_date", "departure_location_adress", "departure_location_city", "driver_user_id", "duration", "musical_preference", "smoking_preference", "talking_preference" },
+                values: new object[] { new Guid("95df620f-ae38-4e5a-8894-41332c14c4c5"), 1, "6 Avenue des Champs Elysées", "Paris", 6, 1000, new DateTime(2025, 4, 20, 15, 0, 0, 0, DateTimeKind.Unspecified), "3 rue Faidherbe", "Lille", new Guid("6d4b945a-8e33-4008-af4c-37fc28b893a4"), 180, 3, 1, 3 });
 
             migrationBuilder.InsertData(
                 table: "RideUsers",

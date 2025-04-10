@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CarMember_server.DTOs.UsersDTO;
+
 
 namespace CarMember_server.Servicies.Interfaces;
 
 
 public interface IAuthService
 {
-    Task<ClientRegisterResponseDTO> ClientRegister(ClientRegisterRequestDTO registerDto);
-    Task<ClientLoginResponseDTO> ClientLogin(LoginRequestDTO loginDto);
+    Task<UserRegisterResponseDTO> UserRegister(UserRegisterRequestDTO registerDto);
+    Task<UserLoginResponseDTO> UserLogin(UserLoginRequestDTO loginDto);
 }

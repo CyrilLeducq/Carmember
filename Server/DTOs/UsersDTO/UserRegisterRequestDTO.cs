@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CarMember_server.Validator;
 
 namespace CarMember_server.DTOs.UsersDTO
 {
-    public class CreateUserRequestDTO
+    public class UserRegisterRequestDTO
     {
         [Required]
         [RegularExpression(@"^[A-Z][a-zA-Z'-]*$", ErrorMessage = "Le prénom doit débuter avec une lettre majuscule !")]

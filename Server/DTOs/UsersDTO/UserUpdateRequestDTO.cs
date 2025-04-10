@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CarMember_server.Validator;
 
 namespace CarMember_server.DTOs.UsersDTO
 {
