@@ -1,4 +1,6 @@
-﻿namespace CarMember_server.DTOs.UsersDTO
+﻿using CarMember_server.Models;
+
+namespace CarMember_server.DTOs.UsersDTO
 {
     public class UserProfilResponseDTO
     {
@@ -6,6 +8,6 @@
 
         public string? Message { get; set; }
 
-        public UserProfilRequestDTO? UserProfile { get; set; }
+        public User? User { get; set; }
     }
 }
