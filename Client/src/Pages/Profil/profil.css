@@ -1,0 +1,53 @@
+.profil-contenant{
+    margin-top: 32px;
+    margin-bottom: 118px;
+
+}
+.button-profil-contenant{
+    display: flex    ;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+}
+.compte,
+.avis,
+.trajets, 
+.messagerie{
+    display: flex;
+    width: 296px;
+    height: 100px;
+    border-radius: 16px;
+    color: white;
+    font-size: 30px;
+    border: none;
+    align-items: center;
+    justify-content: center;
+}
+.compte{
+    background-color: #1b998b;
+}
+.avis{
+    background-color: #F5C45C;
+}
+.trajets{
+    background-color: #f7753D;
+}
+.messagerie{
+    background-color: #474C5A;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 32px;
+}
+.nav    {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+@media (max-width: 768px){
+    .grid{
+        grid-template-columns: 1fr;
+    }
+}

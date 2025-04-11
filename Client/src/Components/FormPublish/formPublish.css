@@ -1,11 +1,20 @@
-.formPublish-contenant{
+/* .formPublish-contenant{
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 32px;
     margin-bottom: 32px;
     gap: 32px;
+} */
+ 
+.formPublish-contenant{
+    display: grid    ;
+    justify-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    margin-top: 32px;
 }
+
 .depart-publish, 
 .destination-publish, 
 .btn-calendar-publish
@@ -51,7 +60,8 @@
     height: 126px;
     width: 296px;
     border-radius: 16px;
-    border: none;
+    background-color: white;
+    
 }
 .choice-contenant-top{
     display: flex    ;
@@ -59,10 +69,40 @@
     justify-content: space-around;
     align-items: center;
     background-color: #1B998B;
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+    padding: 2%;
+    color: white;
+    flex-basis: 25%;
 }
 .choice-contenant-bottom{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
+    flex-basis: 75%;
+    gap: 16px;
+}
+@media (max-width: 768px){
+    .formPublish-contenant{
+        display: flex;
+        flex-direction: column;
+        padding: 1%;
+    }
+    .choice-contenant-bottom{
+        display: flex;
+        flex-direction: column;
+    }
+    .town-choice, 
+    .time-choice{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .animationCar{
+        display: none;
+    }
+    .contenant-bottom{
+        justify-content: center;
+    }
 }

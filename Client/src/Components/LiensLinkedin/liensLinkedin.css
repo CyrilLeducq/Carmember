@@ -1,0 +1,8 @@
+
+.linkedin-lien{
+    display: flex;
+    text-decoration: none;
+    color: white;
+    align-items: center; 
+    gap: 8px;
+}

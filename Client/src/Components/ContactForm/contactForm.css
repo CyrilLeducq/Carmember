@@ -39,3 +39,16 @@ textarea{
     color: #f7753D;
     font-size: 14px;
 }
+
+@media (max-width: 768px){
+    .email, 
+    .subject 
+   {
+        width: 100%;
+    }
+    .message{
+        height: 50%;
+        width: 100%;
+
+    }
+}

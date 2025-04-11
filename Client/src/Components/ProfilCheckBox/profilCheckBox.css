@@ -1,0 +1,14 @@
+.contenant-title{
+    color: #F5c45c;
+}
+.contenant-choice{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.profilCheckBox-contenant{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

@@ -179,8 +179,10 @@ return (
   </div>
   {/* choix fromage */}
   <div className="contenant-bottom">
-  <AnimationCar/>
-  <button className="choice-cheese">
+    <div className="animationCar">
+      <AnimationCar/>
+    </div>
+    <div className="choice-cheese">
     <div className="choice-contenant-top">
       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 45 45" fill="none">
                     <path
@@ -192,11 +194,11 @@ return (
     <div className="choice-contenant-bottom">
           <CheeseSelect/>
           <label className="cheese-gr">
-          <input className="weight-cheese" placeholder="________________" name="weight-chees" min={1}  />
+          <input className="weight-cheese" placeholder="" name="weight-chees" min={1}  />
           gr
           </label>
-    </div>
-  </button>
+    </div>  
+  </div>
   </div>
   <button type="submit" className="submit-envoi">Publier</button>
 </div>

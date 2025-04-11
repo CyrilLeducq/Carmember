@@ -1,13 +1,9 @@
+import "../Info/info.css"
 import Text from "../../Components/Text/text";
-import NewTrajet from "../../Components/NewTrajet/newTrajet";
-import Chargement from "../../Components/Chargement/Chargement"
-import "../Publish/publish.css"
-import FormPublish from "../../Components/FormPublish/formPublish";
-import AnimationCar from "../../Components/AnimationCar/animationCar"
 
-function Publish() {
+function Info() {
     return ( 
-        <div className="publish-contenant">
+        <div className="info-contenant">
             <div className="title-cheese">
                 <div className="icon-cheese">
                     <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45"
@@ -17,7 +13,7 @@ function Publish() {
                             fill="#F5C45C" />
                     </svg>
                 </div>
-                <Text text="PUBLIER UN TRAJET" fontSize="2rem"/>
+                <Text text="INFORMATIONS LEGALES" fontSize="2rem" />
                 <div className="icon-cheese">
                     <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
                         <path
@@ -25,11 +21,24 @@ function Publish() {
                             fill="#F5C45C" />
                     </svg>
                 </div>
+            </div> 
+            
+            <div className="info-text">
+                <p className="text-lorem">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit aspernatur magnam maiores, eligendi accusamus reiciendis ipsum quas velit delectus, repudiandae repellat distinctio eos iusto quidem ratione laudantium nihil natus sunt?Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi id nobis quisquam enim velit! A alias earum ducimus illum voluptate, natus odio vero ex, tenetur rerum suscipit eveniet repellendus optio?Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur atque autem rerum et dolore doloremque eaque corporis nihil nulla. Recusandae minus culpa voluptates vitae voluptatum maxime vel, tempore sunt voluptatem.lor Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro vero rem accusamus placeat eum ipsa esse mollitia labore, minima quibusdam soluta in, neque sequi maxime nesciunt! Itaque nobis ex quia.
+                </p>
+                <p className="text-lorem">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit aspernatur magnam maiores, eligendi accusamus reiciendis ipsum quas velit delectus, repudiandae repellat distinctio eos iusto quidem ratione laudantium nihil natus sunt?Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi id nobis quisquam enim velit! A alias earum ducimus illum voluptate, natus odio vero ex, tenetur rerum suscipit eveniet repellendus optio?Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur atque autem rerum et dolore doloremque eaque corporis nihil nulla. Recusandae minus culpa voluptates vitae voluptatum maxime vel, tempore sunt voluptatem.lor Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro vero rem accusamus placeat eum ipsa esse mollitia labore, minima quibusdam soluta in, neque sequi maxime nesciunt! Itaque nobis ex quia.
+                </p>
+                <p className="text-lorem">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit aspernatur magnam maiores, eligendi accusamus reiciendis ipsum quas velit delectus, repudiandae repellat distinctio eos iusto quidem ratione laudantium nihil natus sunt?Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi id nobis quisquam enim velit! A alias earum ducimus illum voluptate, natus odio vero ex, tenetur rerum suscipit eveniet repellendus optio?Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur atque autem rerum et dolore doloremque eaque corporis nihil nulla. Recusandae minus culpa voluptates vitae voluptatum maxime vel, tempore sunt voluptatem.lor Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro vero rem accusamus placeat eum ipsa esse mollitia labore, minima quibusdam soluta in, neque sequi maxime nesciunt! Itaque nobis ex quia.
+                </p>
+                <p className="text-lorem">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit aspernatur magnam maiores, eligendi accusamus reiciendis ipsum quas velit delectus, repudiandae repellat distinctio eos iusto quidem ratione laudantium nihil natus sunt?Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi id nobis quisquam enim velit! A alias earum ducimus illum voluptate, natus odio vero ex, tenetur rerum suscipit eveniet repellendus optio?Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur atque autem rerum et dolore doloremque eaque corporis nihil nulla. Recusandae minus culpa voluptates vitae voluptatum maxime vel, tempore sunt voluptatem.lor Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro vero rem accusamus placeat eum ipsa esse mollitia labore, minima quibusdam soluta in, neque sequi maxime nesciunt! Itaque nobis ex quia.
+                </p>
             </div>
-            <FormPublish/>
-            <NewTrajet/>
         </div>
      );
 }
 
-export default Publish;
+export default Info;

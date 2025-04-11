@@ -1,0 +1,57 @@
+.avisCard-Component{
+    background-color: white;
+    width: 100%;
+    border-radius: 19px;
+}
+.avis-component-haut{
+    display: flex;
+    justify-content: space-around;
+    background-color: #474C5A;
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+    height: 48px;
+    align-items: center;
+    color: white;
+}
+.avis-component-bas{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    gap: 5px;
+    padding-top: 16px;
+}
+.tab-active{
+    display: flex    ;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7753d;
+    border: none;
+    padding: 1rem;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 132px;
+    height: 60px;
+    transform: scale(1);
+}
+.tab{
+    display: flex    ;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5c45c;
+    border: none;
+    padding: 1rem;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 132px;
+    height: 60px;
+}
+@media (max-width: 768px){
+    .tab, 
+    .tab-active{
+        width: auto ;
+    }
+    
+}

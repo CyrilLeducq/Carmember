@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../CheeseSelect/cheeseSelect.css"
 
 const cheeses = [
   "Appenzeller",
@@ -8,7 +9,7 @@ const cheeses = [
   "Boulette d’Avesnes",
   "Brie de Meaux AOP",
   "Burrata",
-  "Camembert de Normandie AOP",
+  "Camembert AOP",
   "Cantal AOP",
   "Chaource AOP",
   "Cheddar",
@@ -52,7 +53,7 @@ const CheeseSelect = () => {
   };
 
   return (
-    <div>
+    
       <select
         id="cheese-select"
         value={selectedCheese}
@@ -65,7 +66,6 @@ const CheeseSelect = () => {
           </option>
         ))}
       </select>
-    </div>
   );
 };
 

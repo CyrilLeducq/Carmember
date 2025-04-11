@@ -48,7 +48,7 @@ Parce que voyage rime avec fromage, n’hésitez plus ! Lancez vous dans l’ave
     width: "auto",
     height: "auto",
   }} />
-        <Text className="gifaccueil" text={`     SAY\nCHEESE !!!`} />
+        <Text className="gifaccueil" text={`     SAY\nCHEESE !!!`} fontSize="4.7rem"  />
     </div>
   <NewTrajet/>
 </div>

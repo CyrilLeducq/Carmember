@@ -11,8 +11,8 @@ function Footer() {
         <div className="footer-components">
             <div className="haut">
                <ul className="footer-liens">
-                <li>Qui sommes nous? </li>
-                <li>Information Légales</li>
+                <li><a href="/Qui">Qui sommes nous? </a></li>
+                <li><a href="/Informations">Information Légales </a></li>
                 <li><a href="/Cookies"> Cookies</a></li>
                 <li> <a href="/Contact"> Contact</a></li>
             </ul> 

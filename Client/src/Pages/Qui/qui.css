@@ -1,0 +1,22 @@
+.qui-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin-top: 104px;
+}
+.qui-text-lien{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.qui-contenant{
+    margin-top: 32px;
+}
+
+@media (max-width: 768px){
+    .qui-text{
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -18,7 +18,9 @@
 }
 
 .nav-button-publi{
-    
+    display: flex    ;
+    align-items: center;
+    justify-content: center;
     background-color: #1B998B;
     border: none;
     padding: 1rem;
@@ -87,4 +89,15 @@
 }
 button{
     font-family: "Tilt Warp", sans-serif;
+}
+@media (max-width: 768px){
+    .nav-components{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-logo img{
+        position: static;
+        width: 10rem;
+    }
 }
