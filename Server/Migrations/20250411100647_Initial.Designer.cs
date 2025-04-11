@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarMember_server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250410081818_Initial")]
+    [Migration("20250411100647_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -256,7 +256,6 @@ namespace CarMember_server.Migrations
                         .HasColumnName("password");
 
                     b.Property<string>("PasswordSalt")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("password_salt");

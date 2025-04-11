@@ -29,7 +29,7 @@ namespace CarMember_server.DTOs.UsersDTO
         public string Password { get; set; }
 
         [Url(ErrorMessage = "Le lien de l'image de profil est invalide.")]
-        public string ProfilePicture { get; set; }
+        public string? ProfilePicture { get; set; }
 
         [RegularExpression(@"^(Masculin|Feminin|Autre)$", ErrorMessage = "Le genre doit être 'Masculin', 'Feminin', ou 'Autre'.")]
         public string Gender { get; set; }

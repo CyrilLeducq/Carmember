@@ -1,6 +1,6 @@
 ﻿namespace CarMember_server.DTOs.UsersDTO
 {
-    public class UserProfilRequestDTO
+    public class UserPersonnalProfilRequestDTO
     {
         public Guid Id { get; set; }
 

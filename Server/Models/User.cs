@@ -27,9 +27,8 @@ public class User
     [StringLength(100) , Column("password")]
     public string Password { get; set; }
 
-    [Required]
     [StringLength(50) , Column("password_salt")]
-    public string PasswordSalt { get; set; }
+    public string? PasswordSalt { get; set; }
 
     [StringLength(20) , Column("phone_number")]
     public string? PhoneNumber { get; set; }

@@ -24,7 +24,7 @@ namespace CarMember_server.DTOs.UsersDTO
         [DataType(DataType.Password)]
         [StringLength(100, MinimumLength = 6, ErrorMessage = "Le mot de passe doit avoir au moins 6 caractères.")]
         [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{6,}$", ErrorMessage = "Le mot de passe doit contenir au moins une lettre et un chiffre.")]
-        public string? Password { get; set; }}
+        public string? Password { get; set; }
 
         [Url(ErrorMessage = "Le lien de l'image de profil est invalide.")]
         public string? ProfilePicture { get; set; }

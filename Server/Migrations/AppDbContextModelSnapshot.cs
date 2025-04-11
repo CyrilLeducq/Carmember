@@ -253,7 +253,6 @@ namespace CarMember_server.Migrations
                         .HasColumnName("password");
 
                     b.Property<string>("PasswordSalt")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("password_salt");

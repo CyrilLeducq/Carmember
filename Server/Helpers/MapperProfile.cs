@@ -10,8 +10,8 @@ public class MapperProfile : Profile
     {
         // cette ligne permet de dire qu'a l'aide du mapper on pourra passer de l'entité vers le DTO
         // et vice versa grace au .ReverseMap()
-        CreateMap<User, UserProfilRequestDTO>().ReverseMap();
-        CreateMap<User , UserProfilResponseDTO>().ReverseMap();
+        CreateMap<User, UserPersonnalProfilRequestDTO>().ReverseMap();
+        CreateMap<User , UserPersonnalProfilResponseDTO>().ReverseMap();
 
     }
 }

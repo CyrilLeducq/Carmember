@@ -87,7 +87,6 @@ public static class DependencyInjectionExtensions
         builder.Services.AddScoped<IRepository<Ride, Guid>, RideRepository>();
         builder.Services.AddScoped<IRepository<RideUser, Guid>, RideUserRepository>();
         builder.Services.AddScoped<IRepository<VehiculeModel, Guid>, VehiculeModelRepository>();
-        //builder.Services.AddScoped<IRepository<User, Guid>, UserRepository>();
         builder.Services.AddScoped<UserRepository>();
     }
 
@@ -99,6 +98,8 @@ public static class DependencyInjectionExtensions
         //builder.Services.AddHostedService<FirstRunService>();
         
         builder.Services.AddScoped<IUserService, UserService>();
+
+        builder.Services.AddScoped<IAuthService, AuthService>();
     }
 
 

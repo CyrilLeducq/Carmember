@@ -36,7 +36,7 @@ namespace CarMember_server.Migrations
                     lastname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     email = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    password_salt = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    password_salt = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     phone_number = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     profile_picture = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     gender = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),

@@ -6,9 +6,11 @@ namespace CarMember_server.Servicies.Interfaces;
 
 public interface IUserService
 {
-    Task<IEnumerable<UserProfilResponseDTO>> GetAll();
-    Task<UserProfilResponseDTO?> GetById(UserProfilRequestDTO UserProfilRequest);
-    Task<UserProfilResponseDTO?> GetByEmail(string email);
+    Task<IEnumerable<UserPersonnalProfilResponseDTO>> GetAll();
+    Task<User?> GetUserById(string email);
+    Task<UserPersonnalProfilResponseDTO?> GetPersonnalById(Guid id);
+    Task<UserPersonnalProfilResponseDTO?> GetPersonnalByEmail(string email);
+    Task<OtherUserProfilResponseDTO?> GetOtherById(OtherUserProfilRequest otherUserProfilRequest);
     Task<UserRegisterResponseDTO> Create(UserRegisterRequestDTO UserRegisterRequest);
     Task<UserUpdateResponseDTO> Update(UserUpdateRequestDTO UserProfilRequest);
     Task<UserDeleteProfilRequestDTO> Delete(UserDeleteProfilRequestDTO UserDeleteRequest);

@@ -1,4 +1,5 @@
 ﻿using CarMember_server.DTOs.UsersDTO;
+using CarMember_server.Helpers;
 using CarMember_server.Servicies.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,10 +25,10 @@ namespace CarMember_server.Controllers
         [HttpGet]
         [SwaggerOperation(Summary = "Obtenir la liste des Utilisateurs",
                   Description = "Récupère tous les utilisateurs.")]
-        [ProducesResponseType(typeof(IEnumerable<UserProfilResponseDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<UserPersonnalProfilResponseDTO>), StatusCodes.Status200OK)]
         //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-        // [Authorize(Roles = Constants.RoleAdmin)] // => accessible aux admins
-        [AllowAnonymous] // permet de donner l'accès à l'endpoint aux personnes sans JWT => remplace l'annotion [Authorize] du controller
+         //[Authorize(Roles = Constants.RoleAdmin)] // => accessible aux admins
+         [Authorize(Roles = Constants.RoleUsers)] // => accessible aux users connectés uniquement
         public async Task<IActionResult> GetAll()
         {
             var users = await _userService.GetAll();
@@ -38,15 +39,30 @@ namespace CarMember_server.Controllers
         [HttpGet("email")]
         [SwaggerOperation(Summary = "Obtenir un Utilisateur par son Email",
                   Description = "Récupère un Utilisateur en fonction de son Email unique.")]
-        [ProducesResponseType(typeof(UserProfilResponseDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(UserPersonnalProfilResponseDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [AllowAnonymous] // permet de donner l'accès à l'endpoint aux personnes sans JWT => remplace l'annotion [Authorize] du controller
         public async Task<IActionResult> GetByEmail([FromQuery] string? email)
         {
 
-            var response = await _userService.GetByEmail(email);
+            var response = await _userService.GetPersonnalByEmail(email);
 
-            return response.User != null ? Ok(response) : NotFound($"Contact avec l'email {email} non trouvé.");
+            return response != null ? Ok(response) : NotFound($"Contact avec l'email {email} non trouvé.");
+
+        }
+        // GET /users/id
+        [HttpGet("id")]
+        [SwaggerOperation(Summary = "Obtenir un Utilisateur par son ID",
+                  Description = "Récupère un Utilisateur en fonction de son ID unique.")]
+        [ProducesResponseType(typeof(UserPersonnalProfilResponseDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        [Authorize(Roles = Constants.RoleUsers)] // => accessible aux users connectés uniquement
+        public async Task<IActionResult> GetById([FromQuery] string? id)
+        {
+
+            var response = await _userService.GetPersonnalById(Guid.Parse(id));
+
+            return response != null ? Ok(response) : NotFound($"Contact avec l'email {id} non trouvé.");
 
         }
 
@@ -57,21 +73,21 @@ namespace CarMember_server.Controllers
                   Description = "Ajoute un nouvel Utilisateur dans la table.")]
         [ProducesResponseType(typeof(UserRegisterResponseDTO), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [AllowAnonymous] // permet de donner l'accès à l'endpoint aux personnes sans JWT => remplace l'annotion [Authorize] du controller
+
         public async Task<IActionResult> Create([FromBody] UserRegisterRequestDTO user)
         {
-            throw new NotImplementedException();
-
-            //try
-            //{
-            //    var newContact = await _userService.Create(user);
-            //    return CreatedAtAction(nameof(GetById),
-            //                           new { id = newContact.Id },
-            //                           newContact);
-            //}
-            //catch (Exception ex)
-            //{
-            //    return BadRequest($"Erreur lors de la création du user : {ex.Message}");
-            //}
+            try
+            {
+                var newContact = await _userService.Create(user);
+                return CreatedAtAction(nameof(GetById),
+                                       new { id = newContact.User.Id },
+                                       newContact);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erreur lors de la création du user : {ex.Message}");
+            }
         }
 
         // PUT /users/{id}
