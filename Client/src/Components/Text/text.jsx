@@ -13,7 +13,6 @@ const Text = ({ text, className = "", fontSize = "1rem" }) => {
 
         const isSpace = char === " ";
         const style = {
-          fontWeight: "bold",
           marginRight: isSpace ? "0.25em" : 0,
           color: isSpace ? "inherit" : colors[colorIndex % colors.length],
           fontSize: fontSize,

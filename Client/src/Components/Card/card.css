@@ -4,7 +4,6 @@
     position: relative;
     background-color: white;
     border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 24px;
     height: 374px;
     width: 278px;
@@ -18,11 +17,15 @@
     position: absolute;
     width: 113px;
     height: 113px;
-    border-radius: 8px;
-    bottom: -78px;
+    border-radius: 16px;
+    bottom: -50px;
     right: -20px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .card-text {
+    padding: 10px;
   }
   

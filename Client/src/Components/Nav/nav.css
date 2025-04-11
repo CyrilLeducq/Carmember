@@ -1,17 +1,17 @@
 .nav-components{
     display: flex;
     align-items: flex-end;
+    justify-content: center;
 }
 .nav-name{
     display: flex;
     justify-content: center;
-    flex-basis: 33%;
 }
 .nav-name img {
-    width: 16.625rem;
+    width: 15rem;
 }
 .nav-logo img{
-    width: 15.875rem;
+    width: 12rem;
 }
 .nav-profil-container {
     position: relative; 
@@ -80,11 +80,11 @@
   }
 .nav-logo img{
     position: absolute; 
-    top: 5px;
+    top: 15px;
 }
 .nav-logo{
     display: flex;
-    flex-basis: 33%;
+    flex-basis: 13%;
     justify-content: center;
 }
 button{

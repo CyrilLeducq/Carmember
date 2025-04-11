@@ -8,9 +8,10 @@
     align-items: center;
 }
 .card-conteneur{
-    margin-top: 10rem;
+    margin-top: 7rem;
     display: flex;
-    gap: 3%; 
+    gap: 5%; 
+    font-weight: normal;
 }
 .carnew-component{
     background-color: #1B998B;
@@ -21,6 +22,11 @@
     font-weight: 200;
     font-size: 40px;
     color: white;
+}
+
+canvas {
+    border-radius:"16px";
+    border: #1B998B;;
 }
 .carnew-title{
     display: flex;
@@ -46,7 +52,8 @@
     padding-top: 7%;
 }
 .gifaccueil{
-    font-size: 75px;
+    font-family: 'Kanopi Brazil',sans-serif;
+    font-size: 60px;
 }
 @media (max-width: 768px){
     .card-conteneur{

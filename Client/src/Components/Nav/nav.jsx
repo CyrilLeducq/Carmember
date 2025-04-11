@@ -20,10 +20,7 @@ function Nav() {
       </div>
 
       <div className="button-component">
-       
-          <button className="nav-button-publi"> <Link to="/Publier" className="nav"> Publier un <br /> trajet </Link></button>
-       
-
+        <button className="nav-button-publi"> <Link to="/Publier" > Publier un<br />trajet </Link></button>
         <div className="nav-profil-container">
           <button className="nav-button-profil" onClick={toggleAccordion}>
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
@@ -48,11 +45,11 @@ function Nav() {
           )}
         </div>
       </div>
-
-      <div className="nav-logo">
-        <img src={Logo} alt="logo de car'member" />
-      </div>
+        <div className="nav-logo">
+          <img src={Logo} alt="logo de car'member" />
+        </div>
     </div>
+
   );
 }
 
