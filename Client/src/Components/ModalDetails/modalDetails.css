@@ -1,0 +1,89 @@
+.modaletails-title{
+    display: flex;
+    background-color: #474C5a;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 2%;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+}
+.modalDetails-date{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.modalDetails-time{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.modalDetails-place{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.modalDetails-Car{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.modalDetails-price{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F5C45C;
+    font-size: 20px;
+    border-radius: 16px;
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+.reserve-btn {
+    position: absolute;
+    right: 43%;
+    top: 109%;
+}
+
+.reserve-btn{
+    background-color: #ff6f3d;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 16px;
+}
+.modalDetails-bottom{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 16px;
+}
+.modalDetails-date {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  .modalDetails-time {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .modalDetails-place {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  
+  .modalDetails-Car {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  
+  .modalDetails-price {
+    grid-column: 2;
+    grid-row: 2;
+    grid-row: span 2;
+  }
+  
+.modalDetails-options{
+    display: flex;
+    gap: 8px;
+}

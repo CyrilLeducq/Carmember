@@ -1,42 +1,45 @@
 import React, { useState } from "react";
 import right from "../../assets/right.png";
 import left from "../../assets/left.png";
-import "../Carroussel/carrousel.css"
-
+import "../Carroussel/carrousel.css";
 
 function Carrousel({ slides }) {
 	const [current, setCurrent] = useState(0);
+	const cardsPerPage = 4;
 	const length = slides.length;
 
 	const nextSlide = () => {
-		setCurrent(current === length - 1 ? 0 : current + 1);
+		setCurrent((prev) =>
+			prev + cardsPerPage >= length ? 0 : prev + cardsPerPage
+		);
 	};
 
 	const prevSlide = () => {
-		setCurrent(current === 0 ? length - 1 : current - 1);
+		setCurrent((prev) =>
+			prev - cardsPerPage < 0 ? Math.max(length - cardsPerPage, 0) : prev - cardsPerPage
+		);
 	};
+
+	const visibleSlides = slides.slice(current, current + cardsPerPage);
 
 	return (
 		<section className="carrousel-container">
-			{length > 1 && (
+			{length > cardsPerPage && (
 				<div className="carrousel-left" onClick={prevSlide}>
 					<img src={left} alt="gauche" />
 				</div>
 			)}
 
-			{length > 1 && (
+			{length > cardsPerPage && (
 				<div className="carrousel-right" onClick={nextSlide}>
 					<img src={right} alt="droite" />
 				</div>
 			)}
 
 			<div className="carrousel-content">
-				{slides.map((Component, index) => (
-					<div
-						key={index}
-						className={`slider ${current === index ? "active" : "noactive"}`}
-					>
-						{current === index && Component}
+				{visibleSlides.map((Component, index) => (
+					<div key={index} className="slider active">
+						{Component}
 					</div>
 				))}
 			</div>

@@ -1,8 +1,9 @@
 import ProfilCheckBox from "../../Components/ProfilCheckBox/profilCheckBox";
-
+import "../ChoixProfil/choixProfil.css"
 function ChoixProfil() {
 return (
 <div className="choixProfil-contenant">
+    <div className="choixProfil-title">Mes préférences de voyage</div>
     <div className="contenant-discussion">
         <ProfilCheckBox title="Discussions" icon1={ <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27"
             viewBox="0 0 27 27" fill="none">

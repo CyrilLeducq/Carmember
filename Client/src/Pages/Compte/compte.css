@@ -1,0 +1,19 @@
+.compte-contenant{
+    margin-top: 32px;
+}
+.compte-contenant-card{
+    margin-top: 48px;
+    display: flex;
+}
+.compte-left{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    gap: 36px;
+}
+.compte-right{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    gap: 36px;
+}

@@ -21,7 +21,7 @@ function Nav() {
 
       <div className="button-component">
        
-          <button className="nav-button-publi"> <Link to="/Publier" className="nav"> Publier un <br /> trajet </Link></button>
+          <button className="nav-button-publi"> <Link to="/Publier" className=""> Publier un <br /> trajet </Link></button>
        
 
         <div className="nav-profil-container">

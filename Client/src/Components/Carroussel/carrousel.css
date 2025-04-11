@@ -1,46 +1,21 @@
-.carrousel-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    position: relative;
-    
-}
-.carrousel-left{
-    position: absolute;
-    top: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    margin-left: 15px;
+
+.carrousel-content {
+	display: flex;
+	gap: 16px;
+	justify-content: center;
+	align-items: stretch;
 }
 
-.carrousel-right{
-    position: absolute;
-    top: 3%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    right: 0;
-}
-.carrousel-img{
-    width: 100%;
-}
-.carrousel-img img{
-    height: 415px;
-    object-fit: cover;
-    border-radius: 20px;
-    width: 100%;
-    
+.slider {
+	flex: 1 1 22%; 
+	transition: transform 0.3s ease-in-out;
 }
 
-.number{
-    display: flex;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    margin-bottom: 30px;
+.slider.active {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.slider.noactive {
+	display: none;
 }

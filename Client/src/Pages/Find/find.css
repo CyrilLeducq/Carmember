@@ -1,0 +1,9 @@
+.find-contenant{
+    margin-top: 32px;
+}
+.find{
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}

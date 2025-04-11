@@ -164,7 +164,7 @@ function SearchBar() {
           {startDate ? startDate.toLocaleDateString() : "Choisir une date"}
         </button>
         {isOpen && (
-          <div style={{ position: "absolute", zIndex: 10 }}>
+          <div style={{ position: "absolute", zIndex: 10 }} >
             <DatePicker
               selected={startDate}
               onChange={(date) => {

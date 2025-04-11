@@ -1,5 +1,6 @@
 .contenant-title{
     color: #F5c45c;
+    font-size: 24px;
 }
 .contenant-choice{
     display: flex;
@@ -11,4 +12,8 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+}
+.profilCheckBox-title{
+    font-size: 26px;
+    color: #f7753D;
 }

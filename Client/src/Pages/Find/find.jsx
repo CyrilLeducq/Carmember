@@ -3,6 +3,7 @@ import Chargement from "../../Components/Chargement/Chargement";
 import NewTrajet from "../../Components/NewTrajet/newTrajet";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import CarNewTrajetHori from "../../Components/CarNewTrajetHori/carNewTrajetHori";
+import "../Find/find.css"
 
 function Find() {
     return ( 
@@ -25,10 +26,12 @@ function Find() {
                 </svg>
             </div>
         </div> 
+        <div className="find">
         <SearchBar /> 
         <Chargement/>
         <CarNewTrajetHori/>
         <NewTrajet/>
+        </div>
         </div>
      );
 }

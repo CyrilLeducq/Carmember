@@ -1,8 +1,10 @@
 import Text from "../../Components/Text/text";
-// import ChoixProfil from "../../Components/ChoixProfil/choixProfil";
-// import Info from "../../Components/Info/info";
-// import PhotoProfil from "../../Components/PhotoProfil/photoProfil";
+import ChoixProfil from "../../Components/ChoixProfil/choixProfil";
+import Info from "../../Components/Info/info";
+import PhotoProfil from "../../Components/PhotoProfil/photoProfil";
 import Biography from "../../Components/Biography/biography";
+import MyCar from "../../Components/MyCar/myCar"
+import "../Compte/compte.css"
 function compte() {
 return (
 <div className="compte-contenant">
@@ -23,10 +25,18 @@ return (
             </svg>
         </div>
     </div>
-        {/* <ChoixProfil/> */}
-        {/* <Info/> */}
-        {/* <PhotoProfil/> */}
-        <Biography/>
+    <div className="compte-contenant-card">
+        <div className="compte-left">
+         <Info/>   
+        <ChoixProfil/>
+        </div>
+        <div className="compte-right">
+            <PhotoProfil/>
+            <Biography/>
+            <MyCar/>  
+        </div>
+        
+    </div>
 </div> );
 }
 

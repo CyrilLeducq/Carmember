@@ -18,14 +18,14 @@ return (
     </div>
     <SearchBar />
     <div className="card-conteneur">
-        <Card text={`<span style="color: #f7753d; font-weight: bold;">Car'Member</span> est la première application de covoiturage où le fromage devient la monnaie !`} accentColor="#2dd4bf" backgroundColor="#ffffff" textColor="#1e293b" svg=<svg
+        <Card text={`<span style="color: #f7753d">Car'Member</span> est la première application de covoiturage où le fromage devient la monnaie !`} accentColor="#2dd4bf" backgroundColor="#ffffff" textColor="#1e293b" svg=<svg
             xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
             <path
                 d="M43.212 0.671509H5.6571C4.41208 0.671509 3.21805 1.16609 2.33769 2.04646C1.45732 2.92682 0.962738 4.12085 0.962738 5.36587L0.962738 47.6152L10.3515 38.2264H43.212C44.457 38.2264 45.6511 37.7318 46.5314 36.8515C47.4118 35.9711 47.9064 34.7771 47.9064 33.5321V5.36587C47.9064 4.12085 47.4118 2.92682 46.5314 2.04646C45.6511 1.16609 44.457 0.671509 43.212 0.671509ZM33.8233 10.0602C34.5196 10.0602 35.2003 10.2667 35.7793 10.6536C36.3583 11.0405 36.8096 11.5903 37.0761 12.2337C37.3425 12.877 37.4123 13.5849 37.2764 14.2679C37.1406 14.9508 36.8052 15.5782 36.3129 16.0706C35.8205 16.563 35.1931 16.8983 34.5102 17.0341C33.8272 17.17 33.1193 17.1003 32.476 16.8338C31.8326 16.5673 31.2827 16.116 30.8959 15.5371C30.509 14.9581 30.3025 14.2774 30.3025 13.581C30.3025 12.6472 30.6735 11.7517 31.3337 11.0914C31.994 10.4312 32.8895 10.0602 33.8233 10.0602ZM15.0458 10.0602C15.7422 10.0602 16.4229 10.2667 17.0019 10.6536C17.5809 11.0405 18.0321 11.5903 18.2986 12.2337C18.5651 12.877 18.6348 13.5849 18.499 14.2679C18.3631 14.9508 18.0278 15.5782 17.5354 16.0706C17.043 16.563 16.4157 16.8983 15.7327 17.0341C15.0497 17.17 14.3418 17.1003 13.6985 16.8338C13.0552 16.5673 12.5053 16.116 12.1184 15.5371C11.7315 14.9581 11.5251 14.2774 11.5251 13.581C11.5251 12.6472 11.896 11.7517 12.5563 11.0914C13.2165 10.4312 14.1121 10.0602 15.0458 10.0602ZM24.4346 28.8377C18.3084 28.8377 13.0977 27.2651 11.173 21.7962H37.6961C35.7715 27.2651 30.5607 28.8377 24.4346 28.8377Z"
                 fill="white" />
             </svg> />
             <Card text={`Que vous soyez un amateur de Camembert crémeux, un passionné de Cheddar vieilli ou un fan de Raclette fondante, 
-<span style="color: #1B998B; font-weight: bold;">Car'Member</span> révolutionne le covoiturage en vous permettant de partager vos trajets tout en échangeant du fromage 
+<span style="color: #1B998B">Car'Member</span> révolutionne le covoiturage en vous permettant de partager vos trajets tout en échangeant du fromage 
 plutôt que des euros !`} accentColor="#facc15" backgroundColor="#1e293b" textColor="#ffffff" svg=<svg
                 xmlns="http://www.w3.org/2000/svg" width="57" height="57" viewBox="0 0 57 57" fill="none">
                 <path
@@ -33,7 +33,7 @@ plutôt que des euros !`} accentColor="#facc15" backgroundColor="#1e293b" textCo
                     fill="white" />
                 </svg> />
                 <Card text={`Facile d’utilisation,  
-<span style="color: #f7753d; font-weight: bold;">Car'Member</span>  est LA référence du covoiturage épicurien !
+<span style="color: #f7753d; ">Car'Member</span>  est LA référence du covoiturage épicurien !
 Parce que voyage rime avec fromage, n’hésitez plus ! Lancez vous dans l’aventure !`} accentColor="#fb923c" backgroundColor="#fff7ed" textColor="#78350f" svg=<svg
                     xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                     <path

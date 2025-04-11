@@ -1,3 +1,10 @@
 .choixProfil-contenant{
     color: white;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+}
+.choixProfil-title{
+    font-size: 26px;
+    color: #f7753D;
 }

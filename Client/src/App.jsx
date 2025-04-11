@@ -16,7 +16,7 @@ import Qui from "./Pages/Qui/qui";
 import Avis from "./Pages/Avis/avis"
 import Trajet from "./Pages/Trajet/trajet";
 import Info from "./Pages/Info/info";
-
+import Error from "./Pages/Error/error"
 function Layout() {
   const location = useLocation();
   const isHome = location.pathname === "/";
@@ -40,8 +40,7 @@ function Layout() {
         <Route path="/Avis" element={<Avis/>} />
         <Route path="/Trajet" element={<Trajet/>}/>
         <Route path="/Informations" element={<Info/>}/>
-        {/* <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotFound />} /> */}
+        <Route path="/404" element={<Error/>}/>
       </Routes>
       <Footer />
     </>
