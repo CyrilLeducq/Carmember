@@ -28,7 +28,7 @@ namespace CarMember_server.Controllers
         [ProducesResponseType(typeof(IEnumerable<UserPersonnalProfilResponseDTO>), StatusCodes.Status200OK)]
         //[ProducesResponseType(StatusCodes.Status400BadRequest)]
          //[Authorize(Roles = Constants.RoleAdmin)] // => accessible aux admins
-         [Authorize(Roles = Constants.RoleUsers)] // => accessible aux users connectés uniquement
+         [Authorize(Roles = Constants.RoleAdmin)] // => accessible aux users connectés uniquement
         public async Task<IActionResult> GetAll()
         {
             var users = await _userService.GetAll();
@@ -56,7 +56,7 @@ namespace CarMember_server.Controllers
                   Description = "Récupère un Utilisateur en fonction de son ID unique.")]
         [ProducesResponseType(typeof(UserPersonnalProfilResponseDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
-        [Authorize(Roles = Constants.RoleUsers)] // => accessible aux users connectés uniquement
+        [Authorize]
         public async Task<IActionResult> GetById([FromQuery] string? id)
         {
 
