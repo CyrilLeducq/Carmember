@@ -1,9 +1,9 @@
 import './card.css';
 
-function Card({ text, accentColor = "#2dd4bf", className = "", svg}) {
+function Card({ text, accentColor = "#2dd4bf", className = "", svg }) {
   return (
     <div className={`card-accent ${className}`}>
-      <p
+      <p className="card-text"
         dangerouslySetInnerHTML={{ __html: text }}
         style={{ color: "#1e293b" }}
       ></p>
