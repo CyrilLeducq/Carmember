@@ -1,0 +1,28 @@
+
+.carrousel-content {
+	display: flex;
+	gap: 16px;
+	justify-content: center;
+	align-items: stretch;
+}
+
+.slider {
+	flex: 1 1 22%; 
+	transition: transform 0.3s ease-in-out;
+}
+
+.slider.active {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.slider.noactive {
+	display: none;
+}
+@media (max-width: 950px){
+	.carrousel-content{
+		display: flex;
+		flex-direction: column;
+		gap: 60px;
+	}
+}

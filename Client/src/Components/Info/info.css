@@ -1,0 +1,26 @@
+.info-components{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 50%;
+}
+.edit-icon{
+    border: none;
+    background-color: transparent;
+}
+.title-info {
+    font-size: 26px;
+    color: #f7753D;
+}
+.field-row{
+    display: flex;
+    justify-content: space-between;
+}
+.field-contenant{
+    display: flex;
+    flex-direction: column;
+    margin-left: 26px;
+    margin-right: 73px;
+    gap: 32px;
+}

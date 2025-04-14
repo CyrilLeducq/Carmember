@@ -1,0 +1,10 @@
+.myCar-contenant{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.myCar-title{
+    font-size: 26px;
+    color: #f7753D;
+}

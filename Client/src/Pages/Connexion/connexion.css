@@ -1,0 +1,14 @@
+.connexion-contenant{
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+}
+.form-control-connect{
+    width: 296px;
+    height: 57px;
+    border-radius: 16px;
+    border: none;
+}
+.btn-connexion{
+    
+}

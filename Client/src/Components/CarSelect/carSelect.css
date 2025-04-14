@@ -1,0 +1,25 @@
+.vehicule-action{
+    display: flex    ;
+    align-items: center;
+    gap: 16px;
+}
+ li {
+    list-style: none;
+}
+.vehicule-item{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.vehicule-sous-titre{
+    font-size: 26px;
+    color: #f7753D;
+    font-weight: 100;
+}
+.vehicule-button{
+    border: none;
+    background-color: transparent;
+}
+.vehicule-button-submit{
+    
+}

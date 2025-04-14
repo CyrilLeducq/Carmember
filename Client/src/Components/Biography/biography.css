@@ -1,0 +1,23 @@
+.biography-contenant{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.biography-contenant-title{
+    display: flex;
+    gap: 16px;
+    color: #f7753d;
+    font-size: 26px;
+}
+.biography-contenant-texte{
+    width: 50%;
+    text-align: justify;
+}
+.edit-icon{
+    border: none;
+    background-color: transparent;
+}
+.input-bio{
+    width: 100%;
+}

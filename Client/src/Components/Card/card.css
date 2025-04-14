@@ -1,0 +1,31 @@
+.card-accent {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: white;
+    border-radius: 16px;
+    padding: 24px;
+    height: 374px;
+    width: 278px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #1e293b;
+    margin-bottom: 30px; 
+  }
+  
+  .accent-square {
+    position: absolute;
+    width: 113px;
+    height: 113px;
+    border-radius: 16px;
+    bottom: -50px;
+    right: -20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-text {
+    padding: 10px;
+  }
+  

@@ -1,0 +1,11 @@
+.info-text{
+    display: flex;
+    color: white;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32px;
+}
+.text-lorem{
+    width: 50%;
+}

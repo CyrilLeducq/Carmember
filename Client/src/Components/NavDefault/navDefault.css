@@ -1,0 +1,18 @@
+.navDefault-components {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.nav-name-default img{
+    width: 16.625rem
+}
+.button-nav{
+    background-color: #F7753D;
+    border: none;
+    border-radius: 16px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,25 @@
+.star-rating {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+  
+  .star {
+    margin-right: 2px;
+    color: lightgray;
+  }
+  
+  .star.full {
+    color: gold;
+  }
+  
+  .star.half {
+    background: linear-gradient(90deg, gold 50%, lightgray 50%);
+  }
+  
+  .rating-text {
+    margin-left: 8px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
