@@ -16,6 +16,7 @@ const Text = ({ text, className = "", fontSize = "1rem" }) => {
           marginRight: isSpace ? "0.25em" : 0,
           color: isSpace ? "inherit" : colors[colorIndex % colors.length],
           fontSize: fontSize,
+         
         };
 
         if (!isSpace) colorIndex++;

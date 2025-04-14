@@ -40,7 +40,7 @@ function Layout() {
         <Route path="/Avis" element={<Avis/>} />
         <Route path="/Trajet" element={<Trajet/>}/>
         <Route path="/Informations" element={<Info/>}/>
-        <Route path="/404" element={<Error/>}/>
+        <Route path="*" element={<Error />} /> 
       </Routes>
       <Footer />
     </>

@@ -16,3 +16,6 @@
 .email ::placeholder{
     color: black;
 }
+.error-message {
+    color: white;
+}

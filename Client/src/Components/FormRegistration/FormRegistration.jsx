@@ -2,8 +2,10 @@ import { useState, useRef } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { registerLocale } from 'react-datepicker';
-import fr from 'date-fns/locale/fr'; // pour français
+import fr from 'date-fns/locale/fr';
 import '../FormRegistration/FormRegistration.css';
+import { Link } from "react-router-dom";
+
 
 registerLocale('fr', fr);
 
@@ -60,14 +62,14 @@ function FormRegistration() {
       }
   
       try {
-        const response = await fetch("https://ton-api.com/inscription", {
+        const response = await fetch("http://localhost:5104", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
             ...formData,
-            birthdate: formData.birthdate.toISOString().split("T")[0], // format YYYY-MM-DD
+            birthdate: formData.birthdate.toISOString().split("T")[0], 
           }),
         });
   
@@ -111,7 +113,7 @@ function FormRegistration() {
             required
           />
 
-          <select className="form-control" name="genre" value={formData.genre} onChange={handleChange} required>
+          <select className="form-control" name="gender" value={formData.genre} onChange={handleChange} required>
             <option value="">Genre</option>
             <option value="man">Homme</option>
             <option value="woman">Femme</option>
@@ -136,7 +138,7 @@ function FormRegistration() {
         <span className='question'>Déjà inscrit(e)?</span>
 
         <div className="btn-group">
-          <button type="submit" className="submit-connex">Connexion</button>
+          <button  className="submit-connex"><Link to="/Connexion">Connexion</Link></button>
           <button type="submit" className="submit-envoi">Valider</button>
         </div>
       </form>
