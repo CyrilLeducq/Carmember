@@ -13,6 +13,8 @@ namespace CarMember_server.DTOs.UsersDTO
         public string ProfilePicture { get; set; }
         public DateTime CreatedAt { get; set; }
 
+        public VehiculeModel VehiculeModel { get; set; } 
+
         public List<Review> ReceivedReviews { get; set; } = new List<Review>();
 
         // Liste des avis donnés
