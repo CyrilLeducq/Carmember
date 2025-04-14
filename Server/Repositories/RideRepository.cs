@@ -79,17 +79,17 @@ namespace CarMember_server.Repositories
             if (rideFromDb.CostCheeseType != ride.CostCheeseType)
                 rideFromDb.CostCheeseType = ride.CostCheeseType;
 
-            if (rideFromDb.MusicalReference != ride.MusicalReference)
-                rideFromDb.MusicalReference = ride.MusicalReference;
+            if (rideFromDb.MusicalPreference != ride.MusicalPreference)
+                rideFromDb.MusicalPreference = ride.MusicalPreference;
 
-            if (rideFromDb.AnimalReference != ride.AnimalReference)
-                rideFromDb.AnimalReference = ride.AnimalReference;
+            if (rideFromDb.AnimalPreference != ride.AnimalPreference)
+                rideFromDb.AnimalPreference = ride.AnimalPreference;
 
-            if (rideFromDb.SmokingReference != ride.SmokingReference)
-                rideFromDb.SmokingReference = ride.SmokingReference;
+            if (rideFromDb.SmokingPreference != ride.SmokingPreference)
+                rideFromDb.SmokingPreference = ride.SmokingPreference;
 
-            if (rideFromDb.TalkingReference != ride.TalkingReference)
-                rideFromDb.TalkingReference = ride.TalkingReference;
+            if (rideFromDb.TalkingPreference != ride.TalkingPreference)
+                rideFromDb.TalkingPreference = ride.TalkingPreference;
 
             await _db.SaveChangesAsync();
             return rideFromDb;

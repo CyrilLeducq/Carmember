@@ -59,10 +59,10 @@ public class InitialTestData
                     Duration=  180 ,
                     CostHeight=  1000 ,
                     CostCheeseType=  Cheesetype.Burrata  ,
-                    MusicalReference=  MusicalPreference.beaucoup  ,
-                    AnimalReference= AnimalPreference.accepte   ,
-                    SmokingReference= SmokingReference.accepte  ,
-                    TalkingReference= TalkingReference.pipelette   ,
+                    MusicalPreference=  MusicalPreference.beaucoup  ,
+                    AnimalPreference= AnimalPreference.accepte   ,
+                    SmokingPreference= SmokingPreference.accepte  ,
+                    TalkingPreference= TalkingPreference.pipelette   ,
                     DriverUserId= Guid.Parse("6d4b945a-8e33-4008-af4c-37fc28b893a4") // Igor Gonzolla
             },
 
@@ -75,10 +75,10 @@ public class InitialTestData
                     Duration=  60 ,
                     CostHeight=  600 ,
                     CostCheeseType=  Cheesetype.Beaufort_AOP ,
-                    MusicalReference=  MusicalPreference.normal  ,
-                    AnimalReference= AnimalPreference.non_accepte   ,
-                    SmokingReference= SmokingReference.non_accepte  ,
-                    TalkingReference= TalkingReference.peu_bavard   ,
+                    MusicalPreference=  MusicalPreference.normal  ,
+                    AnimalPreference= AnimalPreference.non_accepte   ,
+                    SmokingPreference= SmokingPreference.non_accepte  ,
+                    TalkingPreference= TalkingPreference.peu_bavard   ,
                     DriverUserId= Guid.Parse("315dd23f-0155-4196-90eb-f00e2db27014"), // Edmond d'or
             }
     };

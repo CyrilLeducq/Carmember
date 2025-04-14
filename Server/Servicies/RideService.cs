@@ -53,10 +53,10 @@ namespace CarMember_server.Servicies
                 Duration = (int)request.Duration.TotalMinutes, 
                 CostHeight = request.CheeseCostInGrams, 
                 CostCheeseType = request.CheeseType,
-                MusicalReference = request.MusicalPreference,
-                AnimalReference = request.AnimalPreference,
-                SmokingReference = request.SmokingPreference,
-                TalkingReference = request.TalkingPreference
+                MusicalPreference = request.MusicalPreference,
+                AnimalPreference = request.AnimalPreference,
+                SmokingPreference = request.SmokingPreference,
+                TalkingPreference = request.TalkingPreference
             };
 
             // Sauvegarde du trajet dans la base de données
@@ -79,10 +79,10 @@ namespace CarMember_server.Servicies
                 Duration = createdRide.Duration,
                 CostHeight = createdRide.CostHeight,
                 CostCheeseType = createdRide.CostCheeseType.ToString(),
-                MusicalPreference = createdRide.MusicalReference.ToString(),
-                AnimalPreference = createdRide.AnimalReference.ToString(),
-                SmokingPreference = createdRide.SmokingReference.ToString(),
-                TalkingPreference = createdRide.TalkingReference.ToString()
+                MusicalPreference = createdRide.MusicalPreference.ToString(),
+                AnimalPreference = createdRide.AnimalPreference.ToString(),
+                SmokingPreference = createdRide.SmokingPreference.ToString(),
+                TalkingPreference = createdRide.TalkingPreference.ToString()
             };
 
             return response;
@@ -111,10 +111,10 @@ namespace CarMember_server.Servicies
             existingRide.Duration = (int)request.Duration.TotalMinutes;  // Conversion de la durée en minutes
             existingRide.CostHeight = request.CheeseCostInGrams;
             existingRide.CostCheeseType = request.CheeseType;
-            existingRide.MusicalReference = request.MusicalPreference;
-            existingRide.AnimalReference = request.AnimalPreference;
-            existingRide.SmokingReference = request.SmokingPreference;
-            existingRide.TalkingReference = request.TalkingPreference;
+            existingRide.MusicalPreference = request.MusicalPreference;
+            existingRide.AnimalPreference = request.AnimalPreference;
+            existingRide.SmokingPreference = request.SmokingPreference;
+            existingRide.TalkingPreference = request.TalkingPreference;
 
             // Sauvegarde des modifications dans la base de données
             var updatedRide = await _rideRepository.Update(existingRide);

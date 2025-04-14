@@ -9,52 +9,60 @@ public class User
 {
     public Guid Id { get; set; }
 
-[Required]
-[StringLength(50) , Column("firstname")]
-public string FirstName { get; set; }
+    [Required]
+    [StringLength(50), Column("firstname")]
+    public string FirstName { get; set; }
 
-[Required]
-[StringLength(50) , Column("lastname")]
-public string LastName { get; set; }
+    [Required]
+    [StringLength(50), Column("lastname")]
+    public string LastName { get; set; }
 
-[Required]
-[StringLength(150) , Column("email")]
-[EmailAddress]
-public string Email { get; set; }
+    [Required]
+    [StringLength(150), Column("email")]
+    [EmailAddress]
+    public string Email { get; set; }
 
-[Required]
-[JsonIgnore]
-[StringLength(100) , Column("password")]
-public string Password { get; set; }
-
-[Required]
-[StringLength(50) , Column("password_salt")]
-public string PasswordSalt { get; set; }
-
-[StringLength(20) , Column("phone_number")]
-public string PhoneNumber { get; set; }
-
-[StringLength(200) , Column("profile_picture")]
-public string ProfilePicture { get; set; }
-
-[StringLength(50) , Column("gender")]
-public string Gender { get; set; }
-
-[Range(typeof(DateOnly), "1910-05-21", "9999-12-31")]
-public DateTime CreationDate { get; set; }
-
-[Required]
-[StringLength(50), Column("role")]
-public string Role { get; set; }
+    [Required]
+    [JsonIgnore]
+    [StringLength(100), Column("password")]
+    public string Password { get; set; }
 
 
+    [StringLength(50), Column("password_salt")]
+    public string? PasswordSalt { get; set; }
+
+    [StringLength(20), Column("phone_number")]
+    public string PhoneNumber { get; set; }
+
+    [StringLength(200), Column("profile_picture")]
+    public string? ProfilePicture { get; set; }
+
+    [StringLength(50), Column("gender")]
+    public string Gender { get; set; }
+
+    [Range(typeof(DateOnly), "1910-05-21", "9999-12-31")]
+    public DateTime? CreationDate { get; set; }
+
+    [Required]
+    [StringLength(50), Column("role")]
+    public string Role { get; set; }
 
 
-[Column("id_vehicule_model")]
-public Guid? IdVehiculeModel { get; set; }
 
-public VehiculeModel? VehiculeModel { get; set; }
 
-public List<Ride>? Rides { get; set; } = new List<Ride>();
+    [StringLength(36), Column("vehicule_model_id")]
+    public Guid? VehiculeModelId { get; set; }
+
+    public VehiculeModel? VehiculeModel { get; set; }
+
+
+    public List<Review>? ReviewedReviews { get; set; } = new List<Review>();
+    public List<Review>? AuthorReviews { get; set; } = new List<Review>();
+
+
+    public List<Ride> ConductorRides { get; set; } = new List<Ride>();
+
+
+    public List<RideUser> RideUsers { get; set; } = new List<RideUser>();
 
 }
