@@ -37,31 +37,31 @@ function CarSelect() {
     setVehicules((prev) => prev.filter((_, index) => index !== indexToDelete));
   };
   const handleSubmitVehicules = async () => {
-    if (vehicules.length === 0) {
-      alert("Ajoute au moins un véhicule !");
-      return;
-    }
-  
-    try {
-      const response = await fetch("https://ton-api.com/vehicules", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ vehicules }),
-      });
-  
-      if (!response.ok) throw new Error("Erreur lors de l'envoi des véhicules");
-  
-      const data = await response.json();
-      console.log("Véhicules envoyés avec succès :", data);
-      alert("Véhicules enregistrés !");
-    } catch (err) {
-      console.error("Erreur API :", err);
-      alert("Une erreur est survenue");
-    }
-  };
-  
+  if (vehicules.length === 0) {
+    alert("Ajoute au moins un véhicule !");
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ vehicules }),
+    });
+
+    if (!response.ok) throw new Error("Erreur lors de l'envoi des véhicules");
+
+    const data = await response.json();
+    console.log("Véhicules envoyés avec succès :", data);
+    alert("Véhicules enregistrés !");
+  } catch (err) {
+    console.error("Erreur API :", err);
+    alert("Une erreur est survenue");
+  }
+};
+
 
   return (
     <div className="vehicule-container">
