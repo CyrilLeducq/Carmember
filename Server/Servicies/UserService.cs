@@ -149,9 +149,27 @@ namespace CarMember_server.Servicies
             throw new NotImplementedException();
         }
 
-        public async Task<UserDeleteProfilRequestDTO> Delete(UserDeleteProfilRequestDTO UserDeleteRequest)
+        public async Task<UserDeleteProfilResponseDTO> Delete(UserDeleteProfilRequestDTO UserDeleteRequest)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (!await _userRepository.Delete(UserDeleteRequest.UserId))
+                    throw new KeyNotFoundException($"Utilisateur avec l'id {UserDeleteRequest.UserId} non trouvé.");
+
+                return new UserDeleteProfilResponseDTO
+                {
+                    IsSuccessful = true,
+                    UserId = UserDeleteRequest.UserId,
+                    ConfirmationMessage = "OK"
+                };
+            }
+            catch (Exception e)
+            {
+                // Ajout du Logging de l'erreur rencontrée
+                Console.WriteLine($"Erreur de modification pour le User avec l'id {UserDeleteRequest.UserId}: {e.Message}");
+                Console.WriteLine(e.StackTrace);
+                throw;
+            }
         }
 
 
