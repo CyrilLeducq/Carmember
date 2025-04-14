@@ -1,11 +1,48 @@
 import ProfilCheckBox from "../../Components/ProfilCheckBox/profilCheckBox";
+import { useState } from "react";
 import "../ChoixProfil/choixProfil.css"
+
+
 function ChoixProfil() {
+    const [preferences, setPreferences] = useState({
+        discussion: "",
+        musique: "",
+        cigarette: "",
+        animaux: "",
+      });
+    
+      const updatePreference = (category, value) => {
+        setPreferences((prev) => ({
+          ...prev,
+          [category]: value,
+        }));
+      };
+    
+      const handleSubmit = async () => {
+        try {
+          const response = await fetch("https://ton-api.com/preferences", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(preferences),
+          });
+    
+          if (!response.ok) throw new Error("Erreur lors de l'envoi");
+    
+          const result = await response.json();
+          console.log("Préférences envoyées :", result);
+          alert("Préférences enregistrées !");
+        } catch (error) {
+          console.error("Erreur API :", error);
+          alert("Erreur lors de l'envoi des préférences");
+        }
+      };
 return (
 <div className="choixProfil-contenant">
     <div className="choixProfil-title">Mes préférences de voyage</div>
     <div className="contenant-discussion">
-        <ProfilCheckBox title="Discussions" icon1={ <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27"
+        <ProfilCheckBox title="Discussions"  onChange={(value) => updatePreference("discussion", value)} icon1={ <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27"
             viewBox="0 0 27 27" fill="none">
             <g id="Papotte">
                 <path id="Vector"
@@ -39,7 +76,7 @@ return (
             </svg>}/>
     </div>
     <div className="contenant-Musique">
-        <ProfilCheckBox title="Musique" icon1={ <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31"
+        <ProfilCheckBox title="Musique" onChange={(value) => updatePreference("musique", value)} icon1={ <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31"
             viewBox="0 0 32 31" fill="none">
             <g id="Musique">
                 <path id="Vector"
@@ -77,7 +114,7 @@ return (
             </svg>}/>
     </div>
     <div className="contenant-Cigarette">
-        <ProfilCheckBox title="Cigarette" icon1={ <svg xmlns="http://www.w3.org/2000/svg" width="31" height="27"
+        <ProfilCheckBox title="Cigarette"  onChange={(value) => updatePreference("cigarette", value)} icon1={ <svg xmlns="http://www.w3.org/2000/svg" width="31" height="27"
             viewBox="0 0 31 27" fill="none">
             <g id="Cigarette">
                 <path id="Vector"
@@ -114,7 +151,7 @@ return (
             </svg>}/>
     </div>
     <div className="contenant-Animaux">
-        <ProfilCheckBox title="Animaux" icon1={ <svg xmlns="http://www.w3.org/2000/svg" width="30" height="29"
+        <ProfilCheckBox title="Animaux"onChange={(value) => updatePreference("animaux", value)} icon1={ <svg xmlns="http://www.w3.org/2000/svg" width="30" height="29"
             viewBox="0 0 30 29" fill="none">
             <g id="Animaux">
                 <g id="Coeur">
@@ -168,7 +205,9 @@ return (
                 </g>
             </svg>}/>
     </div>
-
+    <button onClick={handleSubmit} className="btn-envoyer">
+        Enregistrer mes préférences
+      </button>
 </div>
 
 

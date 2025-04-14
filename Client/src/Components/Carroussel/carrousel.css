@@ -19,3 +19,10 @@
 .slider.noactive {
 	display: none;
 }
+@media (max-width: 950px){
+	.carrousel-content{
+		display: flex;
+		flex-direction: column;
+		gap: 60px;
+	}
+}
