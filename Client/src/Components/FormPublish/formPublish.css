@@ -1,25 +1,30 @@
-/* .formPublish-contenant{
+.btn-calendar-publish {
     display: flex;
-    flex-direction: column;
+    border-radius: 16px;
+    background-color: white;
     align-items: center;
-    margin-top: 32px;
-    margin-bottom: 32px;
-    gap: 32px;
-} */
- 
-.formPublish-contenant{
-    display: grid    ;
+    width: 296px;
+    height: 57px;
+    border: none;
+    justify-content: flex-start;
+    padding-left: 1.2rem;
+}
+
+.calendar-grey {
+    padding-right: 2.1rem;
+}
+
+.formPublish-contenant {
+    display: grid;
     justify-items: center;
-    gap: 16px;
-    margin-bottom: 32px;
+    gap: 24px;
+    margin-bottom: 64px;
     margin-top: 32px;
 }
 
-.depart-publish, 
-.destination-publish, 
-.btn-calendar-publish
-{
-    display: flex; 
+.depart-publish,
+.destination-publish {
+    display: flex;
     border-radius: 16px;
     background-color: white;
     align-items: center;
@@ -29,15 +34,23 @@
     border: none;
 }
 
-.town-choice, 
-.time-choice{
+.submit-envoi {
+    font-weight: normal;
+    top: 625px;
+}
+
+.town-choice,
+.time-choice {
     display: flex;
     justify-content: center;
     gap: 16px;
 }
-.time-trajet{
+
+.time-trajet {
     display: flex;
     flex-direction: column;
+    padding-left: 5.5rem;
+    align-items: flex-start;
     justify-content: center;
     width: 296px;
     height: 103px;
@@ -45,26 +58,41 @@
     background-color: white;
     border: none;
 }
-.contenant-bottom{
+
+.contenant-bottom {
     display: flex;
 }
-.departure, 
-.arrived{
+
+.departure,
+.arrived {
     border: none;
-    display: flex; 
+    display: flex;
     justify-content: center;
 }
-.choice-cheese{
+
+#cheese-select {
+    font-family: "Tilt Warp";
+    font-size: 15px;
+}
+
+.cheese-gr {
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.choice-cheese {
     display: flex;
     flex-direction: column;
     height: 126px;
     width: 296px;
     border-radius: 16px;
     background-color: white;
-    
+
 }
-.choice-contenant-top{
-    display: flex    ;
+
+.choice-contenant-top {
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
@@ -75,34 +103,54 @@
     color: white;
     flex-basis: 25%;
 }
-.choice-contenant-bottom{
+
+.choice-contenant-bottom {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     height: 100%;
     flex-basis: 75%;
-    gap: 16px;
 }
-@media (max-width: 768px){
-    .formPublish-contenant{
+
+.weight-cheese {
+    width:70%;
+}
+
+@media (max-width: 768px) {
+    .formPublish-contenant {
         display: flex;
         flex-direction: column;
         padding: 1%;
     }
-    .choice-contenant-bottom{
+
+    .choice-contenant-bottom {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        gap:10%;
     }
-    .town-choice, 
-    .time-choice{
+
+    .town-choice,
+    .time-choice {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    .animationCar{
+
+    .animationCar {
         display: none;
     }
-    .contenant-bottom{
+
+    .contenant-bottom {
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-submit {
+        margin-top:1.5rem;
+        display: flex;
+        width: 100%;
+        align-items: center;
         justify-content: center;
     }
 }
