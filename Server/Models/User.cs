@@ -51,8 +51,10 @@ public class User
 
 
     [Column("id_vehicule_model")]
-    public Guid IdVehiculeModel { get; set; }
+    public Guid? IdVehiculeModel { get; set; }
 
-    public VehiculeModel VehiculeModel { get; set; }
+    public VehiculeModel? VehiculeModel { get; set; }
+
+    public List<Ride>? Rides { get; set; } = new List<Ride>();
 
 }
