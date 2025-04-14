@@ -1,4 +1,5 @@
-﻿using CarMember_server.DTOs.UsersDTO;
+﻿using System.Net;
+using CarMember_server.DTOs.UsersDTO;
 using CarMember_server.Helpers;
 using CarMember_server.Servicies.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -27,8 +28,8 @@ namespace CarMember_server.Controllers
                   Description = "Récupère tous les utilisateurs.")]
         [ProducesResponseType(typeof(IEnumerable<UserPersonnalProfilResponseDTO>), StatusCodes.Status200OK)]
         //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-         //[Authorize(Roles = Constants.RoleAdmin)] // => accessible aux admins
-         [Authorize(Roles = Constants.RoleAdmin)] // => accessible aux users connectés uniquement
+        //[Authorize(Roles = Constants.RoleAdmin)] // => accessible aux admins
+        [Authorize(Roles = Constants.RoleAdmin)] // => accessible aux users connectés uniquement
         public async Task<IActionResult> GetAll()
         {
             var users = await _userService.GetAll();
@@ -56,13 +57,23 @@ namespace CarMember_server.Controllers
                   Description = "Récupère un Utilisateur en fonction de son ID unique.")]
         [ProducesResponseType(typeof(UserPersonnalProfilResponseDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
-        [Authorize]
-        public async Task<IActionResult> GetById([FromQuery] string? id)
+        [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
+        public async Task<IActionResult> GetById([FromQuery] string? id, [FromHeader(Name = "Authorization")] string bearer)
         {
+            Console.WriteLine("ID:" +
+                $"\n Bearer ID: [{JwtDecoder.GetId(bearer)}]" +
+                $"Role: [{JwtDecoder.GetRole(bearer)}]");
 
-            var response = await _userService.GetPersonnalById(Guid.Parse(id));
+            if (JwtDecoder.GetId(bearer) == id || JwtDecoder.GetRole(bearer) == Constants.RoleAdmin)
+            {
+                var response = await _userService.GetPersonnalById(Guid.Parse(id));
 
-            return response != null ? Ok(response) : NotFound($"Contact avec l'email {id} non trouvé.");
+                return response != null ? Ok(response) : NotFound($"Contact avec l'email {id} non trouvé.");
+            }
+            else
+            {
+                return Unauthorized($"Vous n'avez pas les droits pour consulter l'Utilisateur {id}.");
+            }
 
         }
 
@@ -100,15 +111,10 @@ namespace CarMember_server.Controllers
         public async Task<IActionResult> Update(int id, [FromBody] UserUpdateRequestDTO user)
         {
             throw new NotImplementedException();
-
             //try
             //{
-            //    var updatedContact = await _userService.Update(id, user);
+            //    var updatedContact = await _userService.Update(user);
             //    return Ok(updatedContact);
-            //}
-            //catch (NotFoundException nex)
-            //{
-            //    return NotFound(nex.Message);
             //}
             //catch (Exception ex)
             //{
