@@ -24,10 +24,6 @@
     color: white;
 }
 
-canvas {
-    border-radius:"16px";
-    border: #1B998B;;
-}
 .carnew-title{
     display: flex;
     justify-content: center;

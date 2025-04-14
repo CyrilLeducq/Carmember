@@ -30,6 +30,11 @@
     background-color: #474C5A; 
     gap: 1rem;
 }
+
+.bas_logo {
+  padding:15px;
+}
+
 @media screen and (max-width: 768px) {
     .haut {
       flex-direction: column;

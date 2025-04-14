@@ -104,7 +104,7 @@ const Trajets = ({
 
         {/* Prix */}
         <div className="modalDetails-price">
-          Prix en fromage <br /> {price} g
+          Prix en fromage <br /> {price} gr
         </div>
       </div>
 
