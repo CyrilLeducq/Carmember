@@ -23,6 +23,11 @@
     align-items: center;
     gap: 16px;
 }
+.modalDetails-contenant{
+
+    background-color: white;
+    border-radius: 20px;
+}
 .modalDetails-Car{
     display: flex;
     align-items: center;

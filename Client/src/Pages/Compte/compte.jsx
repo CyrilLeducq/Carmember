@@ -26,17 +26,12 @@ return (
         </div>
     </div>
     <div className="compte-contenant-card">
-        <div className="compte-left">
-         <Info/>   
+        <Info/>   
         <ChoixProfil/>
+        <PhotoProfil/>
+        <Biography/>
+        <MyCar/>  
         </div>
-        <div className="compte-right">
-            <PhotoProfil/>
-            <Biography/>
-            <MyCar/>  
-        </div>
-        
-    </div>
 </div> );
 }
 

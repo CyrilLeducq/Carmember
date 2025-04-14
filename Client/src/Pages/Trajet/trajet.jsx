@@ -1,5 +1,7 @@
 import "../Trajet/trajet.css"
 import Text from "../../Components/Text/text";
+import Trajets from "../../Components/Trajets/trajets";
+
 
 function trajet() {
     return ( 
@@ -19,6 +21,7 @@ function trajet() {
                         fill="#F5C45C" />
                 </svg></div>
         </div>
+        <Trajets/>
     </div> );
 }
 export default trajet;

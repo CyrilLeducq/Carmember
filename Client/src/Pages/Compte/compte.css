@@ -1,19 +1,12 @@
-.compte-contenant{
-    margin-top: 32px;
+.compte-contenant-card {
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
 }
-.compte-contenant-card{
-    margin-top: 48px;
-    display: flex;
+.choixProfil-contenant{
+    grid-column: 1;
+    grid-row: 2;
 }
-.compte-left{
-    display: flex;
-    flex-direction: column;
-    flex-basis: 50%;
-    gap: 36px;
-}
-.compte-right{
-    display: flex;
-    flex-direction: column;
-    flex-basis: 50%;
-    gap: 36px;
+.myCar-contenant{
+    grid-column: 2;
+    grid-row: 3;
 }
