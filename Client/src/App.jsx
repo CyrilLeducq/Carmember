@@ -17,14 +17,23 @@ import Avis from "./Pages/Avis/avis"
 import Trajet from "./Pages/Trajet/trajet";
 import Info from "./Pages/Info/info";
 import Error from "./Pages/Error/error"
+import Admin from "./Pages/Admin/admin";
 function Layout() {
   const location = useLocation();
   const isHome = location.pathname === "/";
-  const isProfil = location.pathname === "/Profil"
+  const isProfil = location.pathname === "/Profil"; 
+  const isAdmin = location.pathname === "/Admin";
 
   return (
     <>
-      {isHome ? (  <Nav />) : isProfil ? (  <NavProfil />) : (  <NavDefault />)}
+     {isHome ? (
+  <Nav />
+) : isProfil || isAdmin ? (
+  <NavProfil />
+) : (
+  <NavDefault />
+)}
+
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -41,6 +50,7 @@ function Layout() {
         <Route path="/Trajet" element={<Trajet/>}/>
         <Route path="/Informations" element={<Info/>}/>
         <Route path="*" element={<Error />} /> 
+        <Route path="/Admin" element={<Admin />} /> 
       </Routes>
       <Footer />
     </>
