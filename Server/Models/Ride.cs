@@ -50,11 +50,11 @@ public class Ride
 
     [Required]
     [Column("smoking_preference")]
-    public SmokingReference SmokingReference { get; set; }
+    public SmokingPreference SmokingReference { get; set; }
 
     [Required]
     [Column("talking_preference")]
-    public TalkingReference TalkingReference { get; set; }
+    public TalkingPreference TalkingReference { get; set; }
 
 
 
@@ -80,12 +80,12 @@ public enum AnimalPreference
     non_accepte,
     accepte
 }
-public enum SmokingReference
+public enum SmokingPreference
 {
     non_accepte,
     accepte
 }
-public enum TalkingReference
+public enum TalkingPreference
 {
     silencieux, 
     peu_bavard,

@@ -1,12 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CarMember_server.Models;
 
 namespace CarMember_server.DTOs.RidesDTO
 {
     public class RideUpdateRequestDTO
     {
-        [Required]
-        public Guid RideId { get; set; }
-
         [Required(ErrorMessage = "La date de départ est obligatoire.")]
         public DateTime DepartureDate { get; set; }
 
@@ -26,17 +24,21 @@ namespace CarMember_server.DTOs.RidesDTO
         public TimeSpan Duration { get; set; }
 
         [Required(ErrorMessage = "Le coût en fromage (grammes) est obligatoire.")]
-        [Range(0, double.MaxValue, ErrorMessage = "La quantité en gramme de fromage doit être positive")]
-        public double CheeseCostInGrams { get; set; }
+        [Range(0, double.MaxValue, ErrorMessage = "La quantité en gramme de fromage doit être positive.")]
+        public int CheeseCostInGrams { get; set; }
 
         [Required(ErrorMessage = "Le type de fromage est obligatoire.")]
-        public string CheeseType { get; set; }
+        public Cheesetype CheeseType { get; set; }
 
         [Required(ErrorMessage = "La référence musicale est obligatoire.")]
-        public string MusicalReference { get; set; }
+        public MusicalPreference MusicalPreference { get; set; }
 
-        public string AnimalReference { get; set; }
-        public string SmokingReference { get; set; }
-        public string TalkingReference { get; set; }
+        public AnimalPreference AnimalPreference { get; set; }
+        public SmokingPreference SmokingPreference { get; set; }
+        public TalkingPreference TalkingPreference { get; set; }
+
+        // Le conducteur est celui qui met à jour le trajet, donc l'ID de l'utilisateur
+        [Required(ErrorMessage = "L'ID de l'utilisateur est obligatoire.")]
+        public Guid DriverUserId { get; set; }
     }
 }
