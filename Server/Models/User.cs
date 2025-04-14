@@ -14,7 +14,7 @@ public class User
     public string FirstName { get; set; }
 
     [Required]
-    [StringLength(50) , Column("lasttname")]
+    [StringLength(50) , Column("lastname")]
     public string LastName { get; set; }
 
     [Required]
@@ -51,7 +51,7 @@ public class User
 
 
     [Column("id_vehicule_model")]
-    public string IdVehiculeModel { get; set; }
+    public Guid IdVehiculeModel { get; set; }
 
     public VehiculeModel VehiculeModel { get; set; }
 
