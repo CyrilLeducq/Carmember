@@ -50,6 +50,8 @@ namespace CarMember_server.Servicies
                     ProfilePicture = user.ProfilePicture,
                     CreatedAt = user.CreationDate ?? new DateTime(2025, 01, 01),
 
+                    
+
                     ReceivedReviews = null,
                     GivenReviews = null,
                     PastRides = null,
