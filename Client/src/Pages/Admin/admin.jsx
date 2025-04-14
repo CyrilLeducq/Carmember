@@ -34,7 +34,7 @@ return (
       </div>
     </div>
     <div className="admin-tables">
-        < TrajetsTable />
+        <TrajetsTable />
         <UtilisateurTable />
     </div>
 </div>

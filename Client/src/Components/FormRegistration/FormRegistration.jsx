@@ -16,7 +16,7 @@ function FormRegistration() {
   const [formData, setFormData] = useState({
     lastName: '',
     firstName: '',
-    genre: '',
+    gender: '',
     birthdate: '',
     email: '',
     password: ''
