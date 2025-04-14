@@ -55,7 +55,7 @@ canvas {
     font-family: 'Kanopi Brazil',sans-serif;
     font-size: 60px;
 }
-@media (max-width: 768px){
+@media (max-width: 1010px){
     .card-conteneur{
         display: flex;
         flex-direction: column;
