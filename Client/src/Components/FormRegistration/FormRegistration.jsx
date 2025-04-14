@@ -46,9 +46,10 @@ function FormRegistration() {
     return age;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = formRef.current;
+  
     if (form && form.checkValidity()) {
       const age = calculerAge(formData.birthdate);
       if (age < 18) {
@@ -57,9 +58,29 @@ function FormRegistration() {
       } else {
         setErreur('');
       }
-
-      console.log("Données finales :", formData);
-      alert('Formulaire validé !');
+  
+      try {
+        const response = await fetch("https://ton-api.com/inscription", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...formData,
+            birthdate: formData.birthdate.toISOString().split("T")[0], // format YYYY-MM-DD
+          }),
+        });
+  
+        if (!response.ok) throw new Error("Erreur côté serveur");
+  
+        const data = await response.json();
+        console.log("Utilisateur inscrit :", data);
+        alert("Inscription réussie !");
+  
+      } catch (err) {
+        console.error("Erreur API :", err);
+        alert("Erreur lors de l'inscription, réessaie plus tard.");
+      }
     } else {
       form.reportValidity();
     }

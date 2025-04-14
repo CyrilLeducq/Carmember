@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../CheeseSelect/cheeseSelect.css"
+import "../CheeseSelect/cheeseSelect.css";
 
 const cheeses = [
   "Appenzeller",
@@ -44,28 +44,25 @@ const cheeses = [
   "Vieux-Lille",
 ];
 
-const CheeseSelect = () => {
+const CheeseSelect = ({ onChange }) => {
   const [selectedCheese, setSelectedCheese] = useState("");
 
   const handleChange = (e) => {
-    setSelectedCheese(e.target.value);
-    console.log("Fromage sélectionné :", e.target.value);
+    const value = e.target.value;
+    setSelectedCheese(value);
+    if (onChange) onChange(value);
+    console.log("Fromage sélectionné :", value);
   };
 
   return (
-    
-      <select
-        id="cheese-select"
-        value={selectedCheese}
-        onChange={handleChange}
-      >
-        <option value="">Choisir</option>
-        {cheeses.map((cheese) => (
-          <option key={cheese} value={cheese}>
-            {cheese}
-          </option>
-        ))}
-      </select>
+    <select id="cheese-select" value={selectedCheese} onChange={handleChange}>
+      <option value="">Choisir</option>
+      {cheeses.map((cheese) => (
+        <option key={cheese} value={cheese}>
+          {cheese}
+        </option>
+      ))}
+    </select>
   );
 };
 

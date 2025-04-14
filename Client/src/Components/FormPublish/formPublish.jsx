@@ -1,55 +1,77 @@
-import "../FormPublish/FormPublish.css"
+import "../FormPublish/FormPublish.css";
 import { useState } from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import CheeseSelect from "../CheeseSelect/cheeseSelect.jsx"
-import AnimationCar from "../../Components/AnimationCar/animationCar"
+import CheeseSelect from "../CheeseSelect/cheeseSelect.jsx";
+import AnimationCar from "../../Components/AnimationCar/animationCar";
 
 function FormPublish() {
-const [departure, setDeparture] = useState("");
-const [isOpen, setIsOpen] = useState(false);
-const [destination, setDestination] = useState("");
-const [departureSuggestions, setDepartureSuggestions] = useState([]);
-const [destinationSuggestions, setDestinationSuggestions] = useState([]);
-const [isPassengerOpen, setIsPassengerOpen] = useState(false);
-const [startDate, setStartDate] = useState(null);
+  const [departure, setDeparture] = useState("");
+  const [destination, setDestination] = useState("");
+  const [departureSuggestions, setDepartureSuggestions] = useState([]);
+  const [destinationSuggestions, setDestinationSuggestions] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [startDate, setStartDate] = useState(null);
+  const [departureTime, setDepartureTime] = useState("");
+  const [arrivalTime, setArrivalTime] = useState("");
+  const [cheeseWeight, setCheeseWeight] = useState("");
+  const [cheeseType, setCheeseType] = useState(""); // Tu dois modifier CheeseSelect pour qu’il donne une valeur ici
 
+  const apiKey = import.meta.env.VITE_GEODB_API_KEY || "c27264e6d6mshadab7c7b91cd300p11e66ejsnf0635bbccd2e";
 
-const apiKey = import.meta.env.VITE_GEODB_API_KEY || "c27264e6d6mshadab7c7b91cd300p11e66ejsnf0635bbccd2e";
+  const handleCalendarClick = () => setIsOpen(!isOpen);
 
-if (!apiKey) {
-console.warn("⚠️ Clé API GeoDB absente. Vérifie ton fichier .env.local");
-}
-const handleCalendarClick = () => setIsOpen(!isOpen);
-const handleAutocomplete = async (value, setValue, setSuggestions) => {
-setValue(value);
-if (value.length >= 2 && apiKey) {
-try {
-const res = await axios.get("https://wft-geo-db.p.rapidapi.com/v1/geo/cities", {
-params: {
-namePrefix: value,
-countryIds: "FR",
-limit: 5,
-sort: "-population",
-},
-headers: {
-"X-RapidAPI-Key": apiKey,
-"X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com",
-},
-});
-const villes = res.data.data.map((v) => v.city);
-setSuggestions(villes);
-} catch (err) {
-console.error("Erreur API GeoDB :", err);
-setSuggestions([]);
-}
-} else {
-setSuggestions([]);
-}
-};
+  const handleAutocomplete = async (value, setValue, setSuggestions) => {
+    setValue(value);
+    if (value.length >= 2 && apiKey) {
+      try {
+        const res = await axios.get("https://wft-geo-db.p.rapidapi.com/v1/geo/cities", {
+          params: {
+            namePrefix: value,
+            countryIds: "FR",
+            limit: 5,
+            sort: "-population",
+          },
+          headers: {
+            "X-RapidAPI-Key": apiKey,
+            "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com",
+          },
+        });
+        const villes = res.data.data.map((v) => v.city);
+        setSuggestions(villes);
+      } catch (err) {
+        console.error("Erreur API GeoDB :", err);
+        setSuggestions([]);
+      }
+    } else {
+      setSuggestions([]);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const data = {
+        departure,
+        destination,
+        date: startDate,
+        departureTime,
+        arrivalTime,
+        cheeseWeight,
+        cheeseType,
+      };
+      const response = await axios.post("/api/trajet", data); // 🔁 Modifie cette URL selon ton backend
+      console.log("✅ Données envoyées :", response.data);
+      alert("Trajet publié avec succès !");
+    } catch (error) {
+      console.error("❌ Erreur d'envoi :", error);
+      alert("Erreur lors de la publication du trajet.");
+    }
+  };
+
 return (
-<div className="formPublish-contenant">
+<form className="formPublish-contenant" onSubmit={handleSubmit}>
   <div className="town-choice">
 
   {/* Départ */}
@@ -171,11 +193,10 @@ return (
   {/* heure */}
   <button className="time-trajet">
     <label for="departure">Heure de départ</label>
-    <input type="time" id="departure" name="departure" min="09:00" max="18:00" className="departure" required />
+    <input type="time" id="departureTime" value={departureTime} onChange={(e) => setDepartureTime(e.target.value)} min="06:00" max="23:00" required />
 
     <label for="arrived">Heure d'arrivée</label>
-    <input type="time" id="arrived" name="arrived" min="09:00" max="18:00"  className="arrived"  required />
-  </button>
+    <input type="time" id="arrivalTime" value={arrivalTime} onChange={(e) => setArrivalTime(e.target.value)} min="06:00" max="23:59" required />  </button>
   </div>
   {/* choix fromage */}
   <div className="contenant-bottom">
@@ -192,16 +213,16 @@ return (
       <span>Quantité</span>
     </div>
     <div className="choice-contenant-bottom">
-          <CheeseSelect/>
+    <CheeseSelect onChange={(value) => setCheeseType(value)} />
           <label className="cheese-gr">
-          <input className="weight-cheese" placeholder="" name="weight-chees" min={1}  />
+          <input type="number" className="weight-cheese" placeholder="Poids" name="weight-cheese" min={1} value={cheeseWeight} onChange={(e) => setCheeseWeight(e.target.value)} required />
           gr
           </label>
     </div>  
   </div>
   </div>
   <button type="submit" className="submit-envoi">Publier</button>
-</div>
+</form>
 );
 }
 
