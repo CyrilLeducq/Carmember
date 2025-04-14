@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Azure;
 using CarMember_server.DTOs.RidesDTO;
 using CarMember_server.Models;
 using CarMember_server.Repositories;
@@ -133,7 +134,100 @@ namespace CarMember_server.Servicies
         }
         public async Task<RideViewResponseDTO> ViewRideDetails(RideViewRequestDTO request)
         {
-            throw new NotImplementedException("Méthode ViewRideDetails à implémenter.");
+            // Récupérer le trajet par ID à partir de la requête
+            var ride = await _rideRepository.GetById(request.RideId);  // Utilisation de request.RideId pour récupérer le trajet
+            if (ride == null)
+            {
+                _logger.LogWarning($"Ride with ID {request.RideId} not found.");
+                return new RideViewResponseDTO
+                {
+                    IsSuccessful = false,
+                    ErrorMessage = "Ride not found."
+                };
+            }
+
+            // Récupérer les passagers associés à ce trajet
+            var passengers = await _rideRepository.GetPassengersByRideId(request.RideId);
+
+            // Préparer la réponse DTO
+            var response = new RideViewResponseDTO
+            {
+                IsSuccessful = true,
+                DepartureDate = (DateTime)ride.DepartureDate,
+                DepartureLocationCity = ride.DepartureLocationCity,
+                DepartureLocationAddress = ride.DepartureLocationAdress,
+                ArrivalLocationCity = ride.ArrivalLocationCity,
+                ArrivalLocationAddress = ride.ArrivalLocationAdress,
+                DurationInMinutes = ride.Duration,
+                CheeseCostInGrams = ride.CostHeight,
+                CheeseType = ride.CostCheeseType.ToString(),
+                MusicalPreference = ride.MusicalPreference.ToString(),
+                AnimalPreference = ride.AnimalPreference.ToString(),
+                SmokingPreference = ride.SmokingPreference.ToString(),
+                TalkingPreference = ride.TalkingPreference.ToString(),
+                DriverUserId = ride.DriverUserId,
+                DriverFirstName = "Driver First Name", // À récupérer si nécessaire
+                DriverLastName = "Driver Last Name",   // À récupérer si nécessaire
+                DriverProfilePicture = "Driver Image URL", // À récupérer si nécessaire
+                Passengers = passengers
+            };
+
+            return response;
+        }
+        public async Task<RideDeleteResponseDTO> DeleteRide(Guid rideId, Guid userId)
+        {
+            // Récupérer le trajet par ID
+            var ride = await _rideRepository.GetById(rideId);
+            if (ride == null)
+            {
+                _logger.LogWarning($"Ride with ID {rideId} not found.");
+                return new RideDeleteResponseDTO
+                {
+                    IsSuccessful = false,
+                    ErrorMessage = "Ride not found."
+                };
+            }
+
+            // Vérifier si l'utilisateur qui effectue la requête est celui qui a créé le trajet
+            if (ride.DriverUserId != userId)
+            {
+                _logger.LogWarning($"User with ID {userId} is not authorized to delete ride with ID {rideId}.");
+                return new RideDeleteResponseDTO
+                {
+                    IsSuccessful = false,
+                    ErrorMessage = "You are not authorized to delete this ride."
+                };
+            }
+
+            // Supprimer le trajet
+            var isDeleted = await _rideRepository.Delete(rideId);
+            if (!isDeleted)
+            {
+                return new RideDeleteResponseDTO
+                {
+                    IsSuccessful = false,
+                    ErrorMessage = "Failed to delete the ride."
+                };
+            }
+
+            // Log de suppression réussie
+            _logger.LogInformation($"Ride with ID {rideId} deleted successfully by user {userId}.");
+
+            // Retourner une réponse de succès
+            return new RideDeleteResponseDTO
+            {
+                IsSuccessful = true,
+                Message = "Ride deleted successfully."
+            };
+        }
+        public async Task<Ride> GetRideById(Guid rideId)
+        {
+            var ride = await _rideRepository.GetById(rideId);
+            if (ride == null)
+            {
+                _logger.LogWarning($"Ride with ID {rideId} not found.");
+            }
+            return ride; 
         }
     }
 }

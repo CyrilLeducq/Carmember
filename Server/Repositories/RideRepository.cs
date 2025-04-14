@@ -105,5 +105,14 @@ namespace CarMember_server.Repositories
             await _db.SaveChangesAsync();
             return true;
         }
+        public async Task<List<User>> GetPassengersByRideId(Guid rideId)
+        {
+            return await _db.RideUsers
+                .Where(ru => ru.RideId == rideId)
+                .Select(ru => ru.User)
+                .ToListAsync();
+        }
+
+
     }
 }

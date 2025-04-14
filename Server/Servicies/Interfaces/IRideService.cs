@@ -1,4 +1,5 @@
 ﻿using CarMember_server.DTOs.RidesDTO;
+using CarMember_server.Models;
 
 namespace CarMember_server.Servicies.Interfaces
 {
@@ -7,6 +8,8 @@ namespace CarMember_server.Servicies.Interfaces
         Task<RideViewResponseDTO> ViewRideDetails(RideViewRequestDTO request);
         Task<RideCreateResponseDTO> CreateRide(RideCreateRequestDTO request);
         Task<RideUpdateResponseDTO> UpdateRide(Guid rideId, RideUpdateRequestDTO request);
-        //Task<RideDeleteResponseDTO> DeleteRide(RideDeleteRequestDTO request);
+        Task<RideDeleteResponseDTO> DeleteRide(Guid rideId, Guid userId);
+
+        Task<Ride> GetRideById(Guid rideId);
     }
 }
