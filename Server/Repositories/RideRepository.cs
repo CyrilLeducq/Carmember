@@ -21,31 +21,31 @@ namespace CarMember_server.Repositories
             return ride;
         }
 
-        //Methode pour récupérer un trajet par son ID
+        
         public async Task<Ride> GetById(Guid id)
         {
             return await _db.Rides.FindAsync(id);
         }
 
-        //Methode pour récupérer un trajet selon son un prédicat (critère de recherche)
+        
         public async Task<Ride> Get(Expression<Func<Ride, bool>> predicate)
         {
             return await _db.Rides.FirstOrDefaultAsync(predicate);
         }
 
-        //Méthode pour récupérer tous les trajets
+        
         public async Task<IEnumerable<Ride>> GetAll()
         {
             return await _db.Rides.ToListAsync();
         }
 
-        //Methode pour récupérer les trajet selon un predicat
+        
         public async Task<IEnumerable<Ride>> GetAll(Expression<Func<Ride, bool>> predicate)
         {
             return await _db.Rides.Where(predicate).ToListAsync();
         }
 
-        //Méthode pour mettre à jour un trajet
+        
         public async Task<Ride?> Update(Ride ride)
         {
             var rideFromDb = await GetById(ride.Id);
@@ -94,7 +94,7 @@ namespace CarMember_server.Repositories
             await _db.SaveChangesAsync();
             return rideFromDb;
         }
-        //Méthode pour supprimer un trajet
+        
         public async Task<bool> Delete(Guid id)
         {
             var ride = await GetById(id);

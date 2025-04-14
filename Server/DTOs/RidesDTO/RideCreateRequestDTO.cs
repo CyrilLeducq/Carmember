@@ -37,7 +37,7 @@ namespace CarMember_server.DTOs.RidesDTO
         public SmokingPreference SmokingPreference { get; set; }
         public TalkingPreference TalkingPreference { get; set; }
 
-        // Le conducteur est celui qui crée le trajet, donc l'ID de l'utilisateur créateur
+        
         [Required(ErrorMessage = "L'ID de l'utilisateur créateur est obligatoire.")]
         public Guid DriverUserId { get; set; }
 

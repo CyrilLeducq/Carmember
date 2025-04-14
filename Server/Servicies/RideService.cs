@@ -26,14 +26,14 @@ namespace CarMember_server.Servicies
         }
 
         //Implémentations des methodes
-        // Implémentation de la méthode CreateRide
+        // CREATE
         public async Task<RideCreateResponseDTO> CreateRide(RideCreateRequestDTO request)
         {
-            // Validation du modèle (validation des annotations DataAnnotations)
-            var validationResults = new List<ValidationResult>();
-            var context = new ValidationContext(request); // Contexte de validation
            
-            // L'utilisateur qui crée le trajet est celui qui fait la requête, donc on utilise son ID comme DriverUserId
+            var validationResults = new List<ValidationResult>();
+            var context = new ValidationContext(request); 
+           
+            
             var driver = await _userRepository.GetById(request.DriverUserId);
             if (driver == null)
             {
@@ -41,7 +41,7 @@ namespace CarMember_server.Servicies
                 throw new InvalidOperationException("User not found.");
             }
 
-            // Création du trajet
+            
             var ride = new Ride
             {
                 Id = Guid.NewGuid(),
@@ -60,13 +60,13 @@ namespace CarMember_server.Servicies
                 TalkingPreference = request.TalkingPreference
             };
 
-            // Sauvegarde du trajet dans la base de données
+            
             var createdRide = await _rideRepository.Add(ride);
 
-            // Log de création réussie
+            
             _logger.LogInformation($"Ride with ID {createdRide.Id} created successfully by user {request.DriverUserId}.");
 
-            // Construction de la réponse
+            
             var response = new RideCreateResponseDTO
             {
                 IsSuccessful = true,
@@ -88,10 +88,10 @@ namespace CarMember_server.Servicies
 
             return response;
         }
-        // Implémentation de la méthode UpdateRide
+        // UPDATERIDE
         public async Task<RideUpdateResponseDTO> UpdateRide(Guid rideId, RideUpdateRequestDTO request)
         {
-            // Vérification de l'existence du trajet
+            
             var existingRide = await _rideRepository.GetById(rideId);
             if (existingRide == null)
             {
@@ -103,13 +103,13 @@ namespace CarMember_server.Servicies
                 };
             }
 
-            // Mise à jour des informations du trajet
+            
             existingRide.DepartureDate = request.DepartureDate;
             existingRide.DepartureLocationCity = request.DepartureLocationCity;
             existingRide.DepartureLocationAdress = request.DepartureLocationAddress;
             existingRide.ArrivalLocationCity = request.ArrivalLocationCity;
             existingRide.ArrivalLocationAdress = request.ArrivalLocationAddress;
-            existingRide.Duration = (int)request.Duration.TotalMinutes;  // Conversion de la durée en minutes
+            existingRide.Duration = (int)request.Duration.TotalMinutes;  
             existingRide.CostHeight = request.CheeseCostInGrams;
             existingRide.CostCheeseType = request.CheeseType;
             existingRide.MusicalPreference = request.MusicalPreference;
@@ -117,25 +117,25 @@ namespace CarMember_server.Servicies
             existingRide.SmokingPreference = request.SmokingPreference;
             existingRide.TalkingPreference = request.TalkingPreference;
 
-            // Sauvegarde des modifications dans la base de données
+            
             var updatedRide = await _rideRepository.Update(existingRide);
 
-            // Log de mise à jour réussie
+            
             _logger.LogInformation($"Ride with ID {updatedRide.Id} updated successfully.");
 
-            // Construction de la réponse
+            
             var response = new RideUpdateResponseDTO
             {
                 IsSuccessful = true,
-                UpdatedRide = updatedRide // Renvoi du trajet mis à jour
+                UpdatedRide = updatedRide 
             };
 
             return response;
         }
         public async Task<RideViewResponseDTO> ViewRideDetails(RideViewRequestDTO request)
         {
-            // Récupérer le trajet par ID à partir de la requête
-            var ride = await _rideRepository.GetById(request.RideId);  // Utilisation de request.RideId pour récupérer le trajet
+            
+            var ride = await _rideRepository.GetById(request.RideId);  
             if (ride == null)
             {
                 _logger.LogWarning($"Ride with ID {request.RideId} not found.");
@@ -146,10 +146,10 @@ namespace CarMember_server.Servicies
                 };
             }
 
-            // Récupérer les passagers associés à ce trajet
+            
             var passengers = await _rideRepository.GetPassengersByRideId(request.RideId);
 
-            // Préparer la réponse DTO
+            
             var response = new RideViewResponseDTO
             {
                 IsSuccessful = true,
@@ -166,9 +166,9 @@ namespace CarMember_server.Servicies
                 SmokingPreference = ride.SmokingPreference.ToString(),
                 TalkingPreference = ride.TalkingPreference.ToString(),
                 DriverUserId = ride.DriverUserId,
-                DriverFirstName = "Driver First Name", // À récupérer si nécessaire
-                DriverLastName = "Driver Last Name",   // À récupérer si nécessaire
-                DriverProfilePicture = "Driver Image URL", // À récupérer si nécessaire
+                DriverFirstName = "Driver First Name", 
+                DriverLastName = "Driver Last Name",   
+                DriverProfilePicture = "Driver Image URL", 
                 Passengers = passengers
             };
 
@@ -176,7 +176,7 @@ namespace CarMember_server.Servicies
         }
         public async Task<RideDeleteResponseDTO> DeleteRide(Guid rideId, Guid userId)
         {
-            // Récupérer le trajet par ID
+            
             var ride = await _rideRepository.GetById(rideId);
             if (ride == null)
             {
@@ -188,7 +188,7 @@ namespace CarMember_server.Servicies
                 };
             }
 
-            // Vérifier si l'utilisateur qui effectue la requête est celui qui a créé le trajet
+            
             if (ride.DriverUserId != userId)
             {
                 _logger.LogWarning($"User with ID {userId} is not authorized to delete ride with ID {rideId}.");
@@ -199,7 +199,7 @@ namespace CarMember_server.Servicies
                 };
             }
 
-            // Supprimer le trajet
+            // DELETERIDE
             var isDeleted = await _rideRepository.Delete(rideId);
             if (!isDeleted)
             {
@@ -210,10 +210,10 @@ namespace CarMember_server.Servicies
                 };
             }
 
-            // Log de suppression réussie
+            
             _logger.LogInformation($"Ride with ID {rideId} deleted successfully by user {userId}.");
 
-            // Retourner une réponse de succès
+            
             return new RideDeleteResponseDTO
             {
                 IsSuccessful = true,

@@ -15,7 +15,7 @@ namespace CarMember_server.Repositories
             _db = db;
         }
 
-        //Méthode pour ajouter un nouvel utilisateur
+        
         public async Task<User> Add(User user)
         {
             await _db.Users.AddAsync(user);
@@ -23,31 +23,31 @@ namespace CarMember_server.Repositories
             return user;
         }
 
-        //Méthode pour récupérer un utilisateur par son id
+        
         public async Task<User> GetById(Guid id)
         {
             return await _db.Users.FindAsync(id);
         }
 
-        //Methode pour récupérer un utilisateur selon son un prédicat (critère de recherche)
+        
         public async Task<User> Get(Expression<Func<User, bool>>predicate)
         {
             return await _db.Users.FirstOrDefaultAsync(predicate);
         }
 
-        //Méthode pour récupérer tous les utilisateurs
+        
         public async Task<IEnumerable<User>> GetAll()
         {
             return await _db.Users.ToListAsync();
         }
 
-        //Methode pour récupérer les utilisateurs selon un predicat
+        
         public async Task<IEnumerable<User>> GetAll(Expression<Func<User, bool>>predicate)
         {
             return await _db.Users.Where(predicate).ToListAsync();
         }
 
-        //Méthode pour mettre à jour un utilisateur
+        
         public async Task<User?> Update(User user)
         {
             var userFromDb = await GetById(user.Id);
@@ -85,7 +85,7 @@ namespace CarMember_server.Repositories
             return userFromDb;
         }
 
-        //Méthode pour supprimer un utilisateur
+        
         public async Task<bool> Delete(Guid id)
         {
             var user = await GetById(id);
