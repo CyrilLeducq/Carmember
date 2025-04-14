@@ -14,8 +14,7 @@ public class InitialTestData
                     FirstName= "Mozart" ,
                     LastName= "Ella",
                     Email=  "mozart.ella@mail.com",
-                    Password= "TODO",
-                    PasswordSalt= "TODO",
+                    Password= "100.Q/V+igOKdbGwclrOUfb5jA==.qTOpw3vNsRyjR6tdTdgGBVunRKE7L4mObirkvEh88To=",  // Mdp: "PA$$W0RD"
                     CreationDate= new DateTime(2025,04,01),
                     Role= Constants.RoleAdmin,
                     VehiculeModelId = Guid.Parse("2eefbb1b-b7b0-4d0d-834a-90ca46f636c2"), // Modele Chevre O Lait
@@ -27,8 +26,7 @@ public class InitialTestData
                     FirstName= "Igor" ,
                     LastName= "Gonzola",
                     Email=  "igor.gonzolla@mail.com",
-                    Password= "TODO",
-                    PasswordSalt= "TODO",
+                    Password= "100.Q/V+igOKdbGwclrOUfb5jA==.qTOpw3vNsRyjR6tdTdgGBVunRKE7L4mObirkvEh88To=",  // Mdp: "PA$$W0RD"
                     CreationDate= new DateTime(2025,04,02),
                     Role= Constants.RoleUsers,
                     VehiculeModelId= Guid.Parse("66a15c74-4ee7-477d-85b2-a3f084c58142"), // Modele Munster Truck
@@ -39,8 +37,7 @@ public class InitialTestData
                     FirstName= "Edmond" ,
                     LastName= "d'Or",
                     Email=  "edmond.dor@mail.com",
-                    Password= "TODO",
-                    PasswordSalt= "TODO",
+                    Password= "100.Q/V+igOKdbGwclrOUfb5jA==.qTOpw3vNsRyjR6tdTdgGBVunRKE7L4mObirkvEh88To=",   // Mdp: "PA$$W0RD"
                     CreationDate= new DateTime(2025,04,03),
                     Role= Constants.RoleUsers,
                     PhoneNumber= "+336888815" ,
