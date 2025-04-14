@@ -15,12 +15,17 @@ public class Review
     [StringLength(500), Column("comment")]
     public string Comment { get; set; }
 
-    [Column("id_reviewed_user")]
-    public string IdReviewedUser { get; set; }
-    public User ReviewedUser { get; set; }
 
-    [Column("id_author_user")]
-    public string IdAuthorUser { get; set; }
-    public User AuthorUser { get; set; }
+    [Column("reviewed_user_id")]
+    public Guid? ReviewedUserId { get; set; }
 
+    [ForeignKey("ReviewedUserId")]
+    public User? ReviewedUser { get; set; }
+
+
+    [Column("author_user_id")]
+    public Guid? AuthorUserId { get; set; }
+
+    [ForeignKey("AuthorUserId")]
+    public User? AuthorUser { get; set; }
 }
