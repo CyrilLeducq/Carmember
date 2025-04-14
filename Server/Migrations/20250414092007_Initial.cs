@@ -37,10 +37,10 @@ namespace CarMember_server.Migrations
                     email = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     password_salt = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    phone_number = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    profile_picture = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    gender = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    creation_date = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    phone_number = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    profile_picture = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
+                    gender = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     role = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     vehicule_model_id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 36, nullable: true)
                 },
@@ -137,8 +137,8 @@ namespace CarMember_server.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "creation_date", "email", "firstname", "gender", "lastname", "password", "password_salt", "phone_number", "profile_picture", "role", "vehicule_model_id" },
-                values: new object[] { new Guid("315dd23f-0155-4196-90eb-f00e2db27014"), new DateTime(2025, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "edmond.dor@mail.com", "Edmond", "H", "d'Or", "TODO", "TODO", "+336888815", null, "user", null });
+                columns: new[] { "Id", "CreationDate", "email", "firstname", "gender", "lastname", "password", "password_salt", "phone_number", "profile_picture", "role", "vehicule_model_id" },
+                values: new object[] { new Guid("315dd23f-0155-4196-90eb-f00e2db27014"), new DateTime(2025, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "edmond.dor@mail.com", "Edmond", "H", "d'Or", "100.Q/V+igOKdbGwclrOUfb5jA==.qTOpw3vNsRyjR6tdTdgGBVunRKE7L4mObirkvEh88To=", null, "+336888815", null, "user", null });
 
             migrationBuilder.InsertData(
                 table: "VehiculeModels",
@@ -156,11 +156,11 @@ namespace CarMember_server.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "creation_date", "email", "firstname", "gender", "lastname", "password", "password_salt", "phone_number", "profile_picture", "role", "vehicule_model_id" },
+                columns: new[] { "Id", "CreationDate", "email", "firstname", "gender", "lastname", "password", "password_salt", "phone_number", "profile_picture", "role", "vehicule_model_id" },
                 values: new object[,]
                 {
-                    { new Guid("49f88bba-7235-44b3-9b03-2396a5d086a8"), new DateTime(2025, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "mozart.ella@mail.com", "Mozart", "F", "Ella", "TODO", "TODO", "+3368856115", null, "admin", new Guid("2eefbb1b-b7b0-4d0d-834a-90ca46f636c2") },
-                    { new Guid("6d4b945a-8e33-4008-af4c-37fc28b893a4"), new DateTime(2025, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "igor.gonzolla@mail.com", "Igor", "H", "Gonzola", "TODO", "TODO", "+3361142415", null, "user", new Guid("66a15c74-4ee7-477d-85b2-a3f084c58142") }
+                    { new Guid("49f88bba-7235-44b3-9b03-2396a5d086a8"), new DateTime(2025, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "mozart.ella@mail.com", "Mozart", "F", "Ella", "100.Q/V+igOKdbGwclrOUfb5jA==.qTOpw3vNsRyjR6tdTdgGBVunRKE7L4mObirkvEh88To=", null, "+3368856115", null, "admin", new Guid("2eefbb1b-b7b0-4d0d-834a-90ca46f636c2") },
+                    { new Guid("6d4b945a-8e33-4008-af4c-37fc28b893a4"), new DateTime(2025, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "igor.gonzolla@mail.com", "Igor", "H", "Gonzola", "100.Q/V+igOKdbGwclrOUfb5jA==.qTOpw3vNsRyjR6tdTdgGBVunRKE7L4mObirkvEh88To=", null, "+3361142415", null, "user", new Guid("66a15c74-4ee7-477d-85b2-a3f084c58142") }
                 });
 
             migrationBuilder.InsertData(

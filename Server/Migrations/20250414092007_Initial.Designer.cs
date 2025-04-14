@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarMember_server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250411100647_Initial")]
+    [Migration("20250414092007_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -223,8 +223,7 @@ namespace CarMember_server.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("CreationDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("creation_date");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -239,6 +238,7 @@ namespace CarMember_server.Migrations
                         .HasColumnName("firstname");
 
                     b.Property<string>("Gender")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("gender");
@@ -261,13 +261,14 @@ namespace CarMember_server.Migrations
                         .HasColumnName("password_salt");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)")
                         .HasColumnName("phone_number");
 
                     b.Property<string>("ProfilePicture")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)")
                         .HasColumnName("profile_picture");
 
                     b.Property<string>("Role")
@@ -296,8 +297,7 @@ namespace CarMember_server.Migrations
                             FirstName = "Mozart",
                             Gender = "F",
                             LastName = "Ella",
-                            Password = "TODO",
-                            PasswordSalt = "TODO",
+                            Password = "100.Q/V+igOKdbGwclrOUfb5jA==.qTOpw3vNsRyjR6tdTdgGBVunRKE7L4mObirkvEh88To=",
                             PhoneNumber = "+3368856115",
                             Role = "admin",
                             VehiculeModelId = new Guid("2eefbb1b-b7b0-4d0d-834a-90ca46f636c2")
@@ -310,8 +310,7 @@ namespace CarMember_server.Migrations
                             FirstName = "Igor",
                             Gender = "H",
                             LastName = "Gonzola",
-                            Password = "TODO",
-                            PasswordSalt = "TODO",
+                            Password = "100.Q/V+igOKdbGwclrOUfb5jA==.qTOpw3vNsRyjR6tdTdgGBVunRKE7L4mObirkvEh88To=",
                             PhoneNumber = "+3361142415",
                             Role = "user",
                             VehiculeModelId = new Guid("66a15c74-4ee7-477d-85b2-a3f084c58142")
@@ -324,8 +323,7 @@ namespace CarMember_server.Migrations
                             FirstName = "Edmond",
                             Gender = "H",
                             LastName = "d'Or",
-                            Password = "TODO",
-                            PasswordSalt = "TODO",
+                            Password = "100.Q/V+igOKdbGwclrOUfb5jA==.qTOpw3vNsRyjR6tdTdgGBVunRKE7L4mObirkvEh88To=",
                             PhoneNumber = "+336888815",
                             Role = "user"
                         });
