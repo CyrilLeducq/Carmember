@@ -40,6 +40,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 32px;
     margin-top: 32px;
+    margin-bottom: 56px;
+    font-family: 'Kanopi Brazil';
 }
 .nav    {
     text-decoration: none;

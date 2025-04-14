@@ -1,12 +1,45 @@
 .compte-contenant-card {
-    display: grid; 
+    display: grid;
     grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 50px;
+    margin-left:20%;
+    margin-right:20%;
+    margin-bottom: 5%;
 }
-.choixProfil-contenant{
+
+.photo-profil {
+    display:flex;
+    justify-content: center;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.info-components {
     grid-column: 1;
     grid-row: 2;
 }
-.myCar-contenant{
-    grid-column: 2;
+
+.biography-contenant {
+    grid-column: 1;
     grid-row: 3;
+}
+
+.myCar-contenant {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.choixProfil-contenant {
+    display: flex;
+    justify-content: flex-end;
+    grid-column: 2;
+    grid-row: 1/5;
+}
+
+@media (max-width: 900px){
+    .compte-contenant-card {
+        display:flex;
+        flex-direction: column;
+    }
 }

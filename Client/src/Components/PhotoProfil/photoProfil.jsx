@@ -3,7 +3,7 @@ import { useState } from "react";
 
 function PhotoProfil() {
   const [profil, setProfil] = useState({
-    photo: "https://i.postimg.cc/3xZmh8s1/images.png",
+    photo: "https://i.postimg.cc/43Dmgf9G/Avatar.png",
     username: "leslie_lobry",
   });
 

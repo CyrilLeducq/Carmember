@@ -122,7 +122,7 @@ return (
                     fill="#1B998B" />
             </g>
             </svg>} text1="Voyager avec des fumeurs ne me dérange pas"
-            text2="Les pauses cigrette hors de la voiture ne me dérangent pas"
+            text2="Les pauses cigarette hors de la voiture ne me dérangent pas"
             icon2={<svg xmlns="http://www.w3.org/2000/svg" width="31" height="28" viewBox="0 0 31 28" fill="none">
                 <g id="Cigarette">
                     <path id="Vector"
@@ -205,8 +205,8 @@ return (
                 </g>
             </svg>}/>
     </div>
-    <button onClick={handleSubmit} className="btn-envoyer">
-        Enregistrer mes préférences
+    <button onClick={handleSubmit} className="submit">
+        Enregistrer
       </button>
 </div>
 

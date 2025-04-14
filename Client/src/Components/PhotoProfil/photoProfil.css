@@ -4,13 +4,12 @@
     flex-direction: column;
     gap: 32px;
     align-items: center;
- 
 }
 .profile-picture img {
     width: 230px;
     height: 230px;
     border-radius: 50%;
-    border: 10px #f5c45c solid;
+    
 }
 .edit-icon{
     border: none;
@@ -21,6 +20,6 @@
     align-items: center;
     gap: 16px;
 }
-username-display span {
+.username-display span {
     font-size: 36px;
 }

@@ -34,6 +34,7 @@
     width: 132px;
     height: 60px;
     transform: scale(1);
+    font-size: 17px;
 }
 .tab{
     display: flex    ;
@@ -47,6 +48,7 @@
     border-top-right-radius: 10px;
     width: 132px;
     height: 60px;
+    font-size: 17px;
 }
 @media (max-width: 768px){
     .tab, 

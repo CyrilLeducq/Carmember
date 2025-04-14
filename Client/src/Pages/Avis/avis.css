@@ -12,6 +12,7 @@
     top: 292.1px;
     display: flex;
     gap: 32px;
+    
 }
 .avis-list{
     padding: 5%;
@@ -22,6 +23,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 36px;
 }
+
 @media (max-width: 768px){
     .avis-list{
         display: flex;

@@ -13,9 +13,14 @@
     display: flex;
     justify-content: center;
 }
-.email ::placeholder{
+.email::placeholder{
     color: black;
 }
 .error-message {
     color: white;
+}
+
+.form-control-connect, .form-control-connect::placeholder{
+    font-family: "Tilt Warp", sans-serif;
+    padding-left: 10px;
 }

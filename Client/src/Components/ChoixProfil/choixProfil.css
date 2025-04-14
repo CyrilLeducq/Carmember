@@ -8,3 +8,7 @@
     font-size: 26px;
     color: #f7753D;
 }
+
+.contenant-choice {
+    gap:16px;
+}
