@@ -1,0 +1,138 @@
+import React, { useState, useEffect } from 'react';
+
+function UtilisateurTable() {
+  const [utilisateur, setUtilisateur] = useState([]);
+  const [editIndex, setEditIndex] = useState(null);
+  const [editedUtilisateur, setEditedUtilisateur] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+
+    const fetchUtilisateurs = async () => {
+      try {
+        const response = await fetch('http://localhost:5104/users'); 
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setUtilisateur(data);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
+
+    fetchUtilisateurs();
+  }, []);
+
+  const handleDelete = (index) => {
+    const updated = [...utilisateur];
+    updated.splice(index, 1);
+    setUtilisateur(updated);
+  };
+
+  const handleEdit = (index) => {
+    setEditIndex(index);
+    setEditedUtilisateur(utilisateur[index]);
+  };
+
+  const handleChange = (e, key) => {
+    setEditedUtilisateur({ ...editedUtilisateur, [key]: e.target.value });
+  };
+
+  const handleSave = () => {
+    const updated = [...utilisateur];
+    updated[editIndex] = editedUtilisateur;
+    setUtilisateur(updated);
+    setEditIndex(null);
+  };
+
+  const handleCancel = () => {
+    setEditIndex(null);
+    setEditedUtilisateur({});
+  };
+
+  if (loading) {
+    return <div>Chargement...</div>;
+  }
+
+  if (error) {
+    return <div>Erreur : {error.message}</div>;
+  }
+
+  return (
+    <div className="table-container">
+      <div className="header">
+        <h2 className='header-title'>
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
+            <g id="Icone Profil">
+              <path id="Vector" d="M25.0001 12.5C26.5453 12.5 28.0558 12.9582 29.3405 13.8166C30.6253 14.6751 31.6266 15.8952 32.2179 17.3228C32.8092 18.7503 32.964 20.3212 32.6625 21.8366C32.3611 23.3521 31.617 24.7442 30.5244 25.8368C29.4318 26.9294 28.0397 27.6734 26.5243 27.9749C25.0088 28.2763 23.438 28.1216 22.0104 27.5303C20.5829 26.939 19.3627 25.9377 18.5043 24.6529C17.6458 23.3681 17.1876 21.8577 17.1876 20.3125C17.1876 18.2405 18.0107 16.2534 19.4758 14.7882C20.941 13.3231 22.9281 12.5 25.0001 12.5Z" fill="white"/>
+              <path id="Vector_2" d="M25.0001 3.125C29.3266 3.125 33.5559 4.40795 37.1532 6.8116C40.7505 9.21526 43.5543 12.6317 45.21 16.6288C46.8656 20.6259 47.2988 25.0243 46.4548 29.2676C45.6107 33.5109 43.5273 37.4087 40.4681 40.468C37.4088 43.5272 33.511 45.6106 29.2677 46.4547C25.0244 47.2987 20.626 46.8655 16.6289 45.2099C12.6318 43.5542 9.21537 40.7504 6.81171 37.1531C4.40805 33.5558 3.12511 29.3265 3.12511 25C3.13173 19.2004 5.43853 13.6403 9.53946 9.53935C13.6404 5.43842 19.2005 3.13162 25.0001 3.125ZM12.511 38.9469C12.5414 36.8969 13.3764 34.9409 14.8359 33.501C16.2954 32.0611 18.2624 31.2526 20.3126 31.25H29.6876C31.7376 31.2531 33.7042 32.0617 35.1634 33.5016C36.6225 34.9414 37.4573 36.8971 37.4876 38.9469C40.3211 36.4168 42.3193 33.0857 43.2176 29.3948C44.1158 25.7038 43.8718 21.8271 42.5179 18.2779C41.1639 14.7287 38.7638 11.6745 35.6355 9.51964C32.5071 7.36479 28.798 6.21098 24.9993 6.21098C21.2006 6.21098 17.4916 7.36479 14.3632 9.51964C11.2348 11.6745 8.83476 14.7287 7.48079 18.2779C6.12683 21.8271 5.88283 25.7038 6.7811 29.3948C7.67937 33.0857 9.67756 36.4168 12.511 38.9469Z" fill="white"/>
+            </g>
+          </svg>
+          Utilisateur
+        </h2>
+        <input type="text" placeholder="Rechercher" className="search" />
+      </div>
+      <table className="trajet-table">
+        <thead>
+          <tr>
+            <th># Id </th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Date de Naissance</th>
+            <th>Sexe</th>
+            <th>Téléphone</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Véhicule</th>
+            <th>Date de création</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {utilisateur.map((utilisateur, index) => (
+            <tr key={index}>
+              {editIndex === index ? (
+                <>
+                  {Object.keys(utilisateur).map((key) => (
+                    <td key={key}>
+                      <input
+                        value={editedUtilisateur[key]}
+                        onChange={(e) => handleChange(e, key)}
+                      />
+                    </td>
+                  ))}
+                  <td className="actions">
+                    <button onClick={handleSave}>✅</button>
+                    <button onClick={handleCancel}>❌</button>
+                  </td>
+                </>
+              ) : (
+                <>
+                  <td>{utilisateur.idUtilisateur}</td>
+                  <td>{utilisateur.lastName}</td>
+                  <td>{utilisateur.firstName}</td>
+                  <td>{utilisateur.birthdate}</td>
+                  <td>{utilisateur.gender}</td>
+                  <td>{utilisateur.phone}</td>
+                  <td>{utilisateur.mail}</td>
+                  <td>{utilisateur.password}</td>
+                  <td>{utilisateur.car}</td>
+                  <td>{utilisateur.dateCreate}</td>
+                  <td className="actions">
+                    <button className="edit-btn" onClick={() => handleEdit(index)}>✏️</button>
+                    <button className="delete-btn" onClick={() => handleDelete(index)}>🗑️</button>
+                  </td>
+                </>
+              )}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+export default UtilisateurTable;

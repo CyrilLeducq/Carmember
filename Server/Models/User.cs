@@ -40,7 +40,7 @@ public class User
     [StringLength(50), Column("gender")]
     public string Gender { get; set; }
 
-    [Range(typeof(DateOnly), "1910-05-21", "9999-12-31")]
+    [Range(typeof(DateTime), "1910-05-21", "9999-12-31")]
     public DateTime? CreationDate { get; set; }
 
     [Required]

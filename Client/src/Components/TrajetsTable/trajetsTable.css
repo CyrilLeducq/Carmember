@@ -1,0 +1,62 @@
+.table-container {
+    background-color: #2e3540;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .header h2 {
+    margin: 0;
+  }
+  
+  .search {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    width: 200px;
+  }
+  
+  .trajet-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    color: black;
+  }
+  
+  .trajet-table th,
+  .trajet-table td {
+    border-bottom: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: left;
+  }
+  
+  .trajet-table th {
+    background-color: #f5f5f5;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+.header-title{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}

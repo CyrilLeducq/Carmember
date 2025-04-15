@@ -172,6 +172,9 @@ namespace CarMember_server.Servicies
             }
         }
 
-
+        Task<UserDeleteProfilRequestDTO> IUserService.Delete(UserDeleteProfilRequestDTO UserDeleteRequest)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

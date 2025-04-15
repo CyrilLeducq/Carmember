@@ -70,7 +70,6 @@ function SearchBar() {
     <form role="search" onSubmit={handleSubmit} className="search">
       <div className="search-contenant">
 
-        {/* Départ */}
         <div className="depart" style={{ position: "relative" }}>
         <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" fill="none">
 <g id="Icone DÃ©part">
@@ -104,8 +103,6 @@ function SearchBar() {
             </ul>
           )}
         </div>
-
-        {/* Destination */}
         <div className="destination" style={{ position: "relative" }}>
         <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" fill="none">
 <g id="Icone Destination">
@@ -139,8 +136,6 @@ function SearchBar() {
             </ul>
           )}
         </div>
-
-        {/* Date */}
         <button className="btn-calendar" onClick={handleCalendarClick} type="button">
           <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 41 41" fill="none">
             <g id="icone calendrier">
@@ -163,8 +158,6 @@ function SearchBar() {
             />
           </div>
         )}
-
-        {/* Passagers */}
         <div className="passager">
           <button className="personn" type="button" onClick={togglePassengerDropdown}>
           <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 41 41" fill="none">
@@ -181,8 +174,6 @@ function SearchBar() {
             </div>
           )}
         </div>
-
-        {/* Rechercher */}
         <button type="submit" className="btn-search">Rechercher</button>
       </div>
     </form>

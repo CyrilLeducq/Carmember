@@ -12,7 +12,7 @@ function FormConnexion() {
         setError("");
 
         try {
-            const response = await fetch("http://localhost:5104", {
+            const response = await fetch("http://localhost:5104/users", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
