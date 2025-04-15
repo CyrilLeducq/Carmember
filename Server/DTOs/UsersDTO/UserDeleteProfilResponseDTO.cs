@@ -10,9 +10,5 @@
 
         public string ConfirmationMessage { get; set; }
 
-        public UserDeleteProfilResponseDTO()
-        {
-            ConfirmationMessage = string.Empty;
-        }
     }
 }

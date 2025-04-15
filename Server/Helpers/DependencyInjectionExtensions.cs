@@ -26,7 +26,7 @@ public static class DependencyInjectionExtensions
 
         builder.Services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DevelopmentConnection")!));
-            //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")!));
+        //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")!));
 
         builder.AddRepositories();
 
@@ -83,10 +83,14 @@ public static class DependencyInjectionExtensions
 
     private static void AddRepositories(this WebApplicationBuilder builder)
     {
-        builder.Services.AddScoped<IRepository<Review, Guid>, ReviewRepository>();
-        builder.Services.AddScoped<IRepository<Ride, Guid>, RideRepository>();
-        builder.Services.AddScoped<IRepository<RideUser, Guid>, RideUserRepository>();
-        builder.Services.AddScoped<IRepository<VehiculeModel, Guid>, VehiculeModelRepository>();
+        //builder.Services.AddScoped<IRepository<Review, Guid>, ReviewRepository>();
+        //builder.Services.AddScoped<IRepository<Ride, Guid>, RideRepository>();
+        //builder.Services.AddScoped<IRepository<RideUser, Guid>, RideUserRepository>();
+        //builder.Services.AddScoped<IRepository<VehiculeModel, Guid>, VehiculeModelRepository>();
+        builder.Services.AddScoped<ReviewRepository>();
+        builder.Services.AddScoped<RideRepository>();
+        builder.Services.AddScoped<RideUserRepository>();
+        builder.Services.AddScoped<VehiculeModelRepository>();
         builder.Services.AddScoped<UserRepository>();
     }
 
@@ -96,7 +100,7 @@ public static class DependencyInjectionExtensions
     private static void AddServices(this WebApplicationBuilder builder)
     {
         //builder.Services.AddHostedService<FirstRunService>();
-        
+
         builder.Services.AddScoped<IUserService, UserService>();
 
         builder.Services.AddScoped<IAuthService, AuthService>();

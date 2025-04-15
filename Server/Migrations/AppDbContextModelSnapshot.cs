@@ -293,8 +293,7 @@ namespace CarMember_server.Migrations
                             FirstName = "Mozart",
                             Gender = "F",
                             LastName = "Ella",
-                            Password = "TODO",
-                            PasswordSalt = "TODO",
+                            Password = "100.Q/V+igOKdbGwclrOUfb5jA==.qTOpw3vNsRyjR6tdTdgGBVunRKE7L4mObirkvEh88To=",
                             PhoneNumber = "+3368856115",
                             Role = "admin",
                             VehiculeModelId = new Guid("2eefbb1b-b7b0-4d0d-834a-90ca46f636c2")
@@ -307,8 +306,7 @@ namespace CarMember_server.Migrations
                             FirstName = "Igor",
                             Gender = "H",
                             LastName = "Gonzola",
-                            Password = "TODO",
-                            PasswordSalt = "TODO",
+                            Password = "100.Q/V+igOKdbGwclrOUfb5jA==.qTOpw3vNsRyjR6tdTdgGBVunRKE7L4mObirkvEh88To=",
                             PhoneNumber = "+3361142415",
                             Role = "user",
                             VehiculeModelId = new Guid("66a15c74-4ee7-477d-85b2-a3f084c58142")
@@ -321,8 +319,7 @@ namespace CarMember_server.Migrations
                             FirstName = "Edmond",
                             Gender = "H",
                             LastName = "d'Or",
-                            Password = "TODO",
-                            PasswordSalt = "TODO",
+                            Password = "100.Q/V+igOKdbGwclrOUfb5jA==.qTOpw3vNsRyjR6tdTdgGBVunRKE7L4mObirkvEh88To=",
                             PhoneNumber = "+336888815",
                             Role = "user"
                         });

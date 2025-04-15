@@ -51,18 +51,19 @@ namespace CarMember_server.Controllers
             return response != null ? Ok(response) : NotFound($"Contact avec l'email {email} non trouvé.");
 
         }
-        // GET /users/id
+        // GET /users/
         [HttpGet("id")]
         [SwaggerOperation(Summary = "Obtenir un Utilisateur par son ID",
-                  Description = "Récupère un Utilisateur en fonction de son ID unique.")]
+                  Description = "Récupère un Utilisateur en fonction de son ID unique. La route n'est authorisée que pour consulter l'utilisateur ID dans le JWT Token en entrée" +
+            "ou par un rôle Admin en JWT Token en entrée.")]
         [ProducesResponseType(typeof(UserPersonnalProfilResponseDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> GetById([FromQuery] string? id, [FromHeader(Name = "Authorization")] string bearer)
         {
-            Console.WriteLine("ID:" +
-                $"\n Bearer ID: [{JwtDecoder.GetId(bearer)}]" +
-                $"Role: [{JwtDecoder.GetRole(bearer)}]");
+            //DEBUG Console.WriteLine("ID:" +
+            //    $"\n Bearer ID: [{JwtDecoder.GetId(bearer)}]" +
+            //    $"Role: [{JwtDecoder.GetRole(bearer)}]");
 
             if (JwtDecoder.GetId(bearer) == id || JwtDecoder.GetRole(bearer) == Constants.RoleAdmin)
             {
@@ -101,8 +102,8 @@ namespace CarMember_server.Controllers
             }
         }
 
-        // PUT /users/{id}
-        [HttpPut("{id}")]
+        // PUT /users/id
+        [HttpPut("id")]
         [SwaggerOperation(Summary = "Mettre à jour un user",
                   Description = "Met à jour les informations d'un user existant.")]
         [ProducesResponseType(typeof(UserUpdateResponseDTO), StatusCodes.Status200OK)]
@@ -110,20 +111,19 @@ namespace CarMember_server.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Update(int id, [FromBody] UserUpdateRequestDTO user)
         {
-            throw new NotImplementedException();
-            //try
-            //{
-            //    var updatedContact = await _userService.Update(user);
-            //    return Ok(updatedContact);
-            //}
-            //catch (Exception ex)
-            //{
-            //    return BadRequest($"Erreur lors de la mise à jour du user : {ex.Message}");
-            //}
+            try
+            {
+                var updatedContact = await _userService.Update(user);
+                return Ok(updatedContact);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erreur lors de la mise à jour du user : {ex.Message}");
+            }
         }
 
-        // DELETE /users/{id}
-        [HttpDelete("{id}")]
+        // DELETE /users/
+        [HttpDelete()]
         [SwaggerOperation(Summary = "Supprimer un user",
                   Description = "Supprime un user à partir de son identifiant.")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -131,22 +131,17 @@ namespace CarMember_server.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Delete(UserDeleteProfilRequestDTO user)
         {
-            throw new NotImplementedException();
 
-            //try
-            //{
-            //    await _userService.Delete(id);
-            //    //return Ok($"Contact {id} supprimé.")
-            //    return NoContent();
-            //}
-            //catch (NotFoundException ex)
-            //{
-            //    return NotFound(ex.Message);
-            //}
-            //catch (Exception ex)
-            //{
-            //    return BadRequest($"Erreur lors de la suppression du user : {ex.Message}");
-            //}
+            try
+            {
+                await _userService.Delete(user);
+                //return Ok($"Contact {id} supprimé.")
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erreur lors de la suppression du user : {ex.Message}");
+            }
         }
 
     }

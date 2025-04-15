@@ -13,5 +13,5 @@ public interface IUserService
     Task<OtherUserProfilResponseDTO?> GetOtherById(OtherUserProfilRequest otherUserProfilRequest);
     Task<UserRegisterResponseDTO> Create(UserRegisterRequestDTO UserRegisterRequest);
     Task<UserUpdateResponseDTO> Update(UserUpdateRequestDTO UserProfilRequest);
-    Task<UserDeleteProfilRequestDTO> Delete(UserDeleteProfilRequestDTO UserDeleteRequest);
+    Task<UserDeleteProfilResponseDTO> Delete(UserDeleteProfilRequestDTO UserDeleteRequest);
 }
